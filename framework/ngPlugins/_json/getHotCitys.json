@@ -1,0 +1,38 @@
+{
+    "code": 1,
+    "message": "成功!",
+    "object": [{
+            "provinceId": 2,
+            "cityId": 18,
+            "cityName": "北京"
+        },{
+            "provinceId": 24,
+            "cityId": 286,
+            "cityName": "上海市"
+        },{
+            "provinceId": 2,
+            "cityId": 18,
+            "cityName": "北京"
+        },{
+            "provinceId": 24,
+            "cityId": 286,
+            "cityName": "上海市"
+        },{
+            "provinceId": 2,
+            "cityId": 18,
+            "cityName": "北京"
+        },{
+            "provinceId": 24,
+            "cityId": 286,
+            "cityName": "上海市"
+        },{
+            "provinceId": 2,
+            "cityId": 18,
+            "cityName": "北京"
+        },{
+            "provinceId": 24,
+            "cityId": 286,
+            "cityName": "上海市"
+        }],
+    "map": {}
+}

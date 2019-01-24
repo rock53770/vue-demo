@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>webViewBridge桥测试</title>
+    <style type="text/css">
+        body{
+            padding: 10px;
+            background: #F8F8F8;
+        }
+        h2{
+            /* padding-bottom: 30px; */
+        }
+        h2 a{
+            margin-left:10px;
+        }
+        ol{
+            padding-left: 25px;
+        }
+        ol li{
+            margin-bottom: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #558EC4;
+            font-size: 14px;
+			cursor: pointer;
+        }
+        .wrapper{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+		<p>webViewBridge调试页面</p>
+		<div class="wrapper">
+			<ol>
+				<li>
+					<a id="getIsInApp">getIsInApp</a>
+				</li>
+			</ol>
+		</div>
+    </div>
+    <!-- <script src="http://static.cheok.com/require/require.js"></script> -->
+    <script src="http://static.cheok.com/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../dist/webViewBridge.js"></script>
+    <script>
+		$('#getIsInApp').click(function() {
+			wv.getIsInApp().then(function(){
+				alert('在app内')
+			}, function(){
+				alert('不在app内')
+			});
+		})
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <title></title>
+    <style></style>
+</head>
+
+<body>
+    <p style="padding: 0px 3px 12px; text-align: center; color: rgb(51, 51, 51); font-size: 24px; font-family: 微软雅黑, &quot;Microsoft Yahei&quot;, &quot;Hiragino Sans GB&quot;, tahoma, arial, 宋体; white-space: normal; background-color: rgb(255, 255, 255); margin-top: 5px; margin-bottom: 0px; line-height: normal;">
+    版本功能更新说明
+</p>
+<p>
+    <a class="newstime" style="color: rgb(102, 102, 102); text-align: center; display: block; padding: 5px 0px; margin-bottom: 20px; border-bottom: 3px solid rgb(231, 231, 231); font-family: 微软雅黑, &quot;Microsoft Yahei&quot;, &quot;Hiragino Sans GB&quot;, tahoma, arial, 宋体; font-size: 12px; white-space: normal; background-color: rgb(255, 255, 255);">最后发布时间：2018-04-25</a>
+</p>
+<p style="margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+    <strong>feature/v1.1</strong>
+</p>
+<p style="margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+    &nbsp; &nbsp; 该版本主要优化了以下几个块内容：
+</p>
+<ol class=" list-paddingleft-2" style="list-style-type: decimal;">
+    <li>
+        <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+            对btPage进行了统一封装，提供了vue版本的调用和iframe形式加载的，具体的优化点详见内部<a href="http://202.101.187.185:666/fed-core/framework/blob/feature/v1.1/btPage/README.md" target="_blank">README.md</a>文件；
+        </p>
+    </li>
+    <li>
+        <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+            webViewBridge结构进行了调整（改了目录，但是不会影响原来的调用路径），会用es6的语法输出wv，对wv暴露了一些定义新方法需要用到的函数，以后webViewBridge文件，提供dist版本以供独立调用需求
+        </p>
+        <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+            （信用端的伙伴注意：信用端目前旧版本保持非透明是用/common/web_full容器打开的，但是海波这边约定已经取消这个容器，统一还是用/common/web根据container_style去实现，目前信用新版本已经同步，但是旧版本不是，这个需要注意一下。）<br/>
+        </p>
+    </li>
+    <li>
+        <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+            提供了angular的统一封装组件集合ngPlugins
+        </p>
+    </li>
+    <li>
+        <p style="margin-top: 0px; margin-bottom: 0px; padding: 0px;">
+            提供了vue的统一封装组件集合vuePlugins
+        </p>
+    </li>
+</ol>
+<p>
+    <br/>
+</p>
+</body>
+
+</html>

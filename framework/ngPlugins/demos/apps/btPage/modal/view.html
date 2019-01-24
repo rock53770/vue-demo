@@ -1,0 +1,69 @@
+<div class="webDialog-wrapper">
+    <div class="mask"></div>
+    <div class="content">
+        <div class="photo"></div>
+        <div class="tip">
+            <p ng-if="!!modalId">modalId:{{modalId}}</p>
+            <p ng-if="!modalId">这不是个webModal</p>
+            <p>test_param:{{test_param}}</p>
+        </div>
+        <div class="action-btns">
+            <a class="btn" tap-handler="call1()">返回1步，传参数111</a>
+            <a class="btn" tap-handler="call2()">返回1步，传参数222</a>
+            <a class="btn" tap-handler="call3()">返回2步，传参数222</a>
+            <a class="btn" tap-handler="skipToOther()">关闭模态窗，并且跳转到其它页面</a>
+            <a class="btn" tap-handler="openAnther()">再弹个webModal</a>
+            <a class="btn" tap-handler="cancel()">取消</a>
+        </div>
+    </div>
+</div>
+<style>
+    .ks-fixed{
+        position: fixed;
+    }
+    .webDialog-wrapper{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .webDialog-wrapper .mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .webDialog-wrapper .content{
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        left: 50%;
+        background: #ffffff;
+        border-radius: 13px;
+        width: 280px;
+        margin-left: -140px;
+        margin-top: -200px;
+    }
+    .webDialog-wrapper .tip{
+        width: 100%;
+        padding: 13px 15px;
+        line-height: 1.5;
+        color: #333333;
+        font-size: 12px;
+        position: relative;
+        z-index: 1;
+    }
+    .webDialog-wrapper .action-btns{   
+        width: 100%;
+    }
+    .webDialog-wrapper .action-btns .btn{    
+        display: block;
+        text-align: center;
+        line-height: 45px;
+        border-top: 1px solid #e2e2e2;
+    }
+</style>

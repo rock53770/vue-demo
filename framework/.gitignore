@@ -1,0 +1,15 @@
+node_modules/
+typings/
+npm-debug.json
+npm-debug.log
+.vscode/
+.idea/
+.*/
+.svn/
+
+btPage/dist/
+webViewBridge/dist/
+
+build/
+aspnet_client/
+Gruntfile.json

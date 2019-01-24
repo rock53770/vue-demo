@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <style type="text/css">
+        body{
+            padding: 10px;
+            background: #F8F8F8;
+        }
+        h2{
+            /* padding-bottom: 30px; */
+        }
+        h2 a{
+            margin-left:10px;
+        }
+        ol{
+            padding-left: 25px;
+        }
+        ol li{
+            margin-bottom: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #558EC4;
+            font-size: 14px;
+        }
+        .wrapper{
+            margin-top: 10px;
+        }
+        /*模态弹层*/
+        .ks-fixed{
+            position: fixed;
+        }
+        .webDialog-wrapper .content{
+            position: absolute;
+            z-index: 999;
+            top: 50%;
+            left: 50%;
+            background: #ffffff;
+            border-radius: 13px;
+            width: 280px;
+            margin-left: -140px;
+            margin-top: -200px;
+        }
+        .webDialog-wrapper .tip{
+            width: 100%;
+            padding: 13px 15px;
+            line-height: 1.5;
+            color: #333333;
+            font-size: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .webDialog-wrapper .action-btns{   
+            width: 100%;
+        }
+        .webDialog-wrapper .action-btns .btn{    
+            display: block;
+            text-align: center;
+            line-height: 45px;
+            border-top: 1px solid #e2e2e2;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>这只是一个普通的vue demo页面，没有引入router，router应用的demo请用对应项目的demo页面进行查看</p>
+        <div style="color:red;">非router的页面不建议使用传url的方式加载，因为是用iframe方式去加载，对体验会有影响，当然，实在要用我也已经实现了</div>
+        <div class="wrapper">
+            <!-- <h2>当前第{{num}}个页面<a bt-sref="/demo/webDialog/index?num={{num + 1}}">再开个页面</a></h2> -->
+            <ol>
+                <li>
+                    <a @click="openPhotoDialog1()">open--普通跳转(该方式wap端无法回调)</a>
+                </li>
+                <li>
+                    <a @click="openPhotoDialog4()">openFull--全屏（这在wap端表现也是一个webModel）</a>
+                </li>
+                <li>
+                    <a @click="openPhotoDialog5()">openFull--全屏入栈方式打开窗口（不透明）</a>
+                </li>
+                <li>
+                    <a @click="openPhotoDialog2()">openModal--传url</a>
+                    <div></div>
+                    <!-- <div>如果不是router应用，btPage暂时不支持这样调用。因为需要iframe去实现，回调也是个问题，so没实现的意义，如果一定要分建议用require去引入对应的controller和view进行调用</div> -->
+                </li>
+                <li>
+                    <a @click="openPhotoDialog3()">openModal--传组件</a>
+                </li>
+            </ol>
+            <div>
+                <p>子级页面取得的值1：{{param1}}</p>
+                <p>子级页面取得的值2：{{param2}}</p>
+            </div>
+            <div>
+                <p>模态窗的传参--字符串：{{testStr}}</p>
+                <p>回调了：{{count}}次</p>
+            </div>
+        </div>
+    </div>
+    <script src="http://static.cheok.com/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../dist/webViewBridge.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../dist/btPageVue.js"></script>
+    <script> 
+        //这个也可以单独写到某个文件引入，如果有打包器的话
+        let subComponent = {
+            data(){
+                return {
+                    param1: this.$route.query.test_param
+                }
+            },
+            mounted(){
+                console.log(this.param1, this.$route)
+            },
+            template: `<div style="background: #fff;">
+                <div>哈哈哈哈哈fdsafadsffsdf</div>
+                <div>param1:{{param1}}</div>
+            </div>`
+        };
+        let app = new Vue({
+            el: '#app',
+            data: {
+                param1: '',
+                param2: '',
+                testStr: '',
+                count: 0
+            },
+            mounted: () => {
+            },
+            methods: {
+                //页面后退回调
+                resumeFunc (data) {
+                    let _this = this;
+                    if(data){
+                        // console.log(data);
+                        _this.param1 = data.aa;
+                        _this.param2 = data.bb;
+
+                        if(data.testStr){
+                            _this.testStr += data.testStr;
+                        }
+
+                        if(data.skipPath){
+                            btPage.open(data.skipPath);
+                        }
+                    } else{
+                        console.log('没有传参');
+                    }
+                    _this.count++;
+                },
+                openPhotoDialog1(){
+                    let _this = this;
+                    btPage.open({
+                        url: "/demo/test.html",
+                        jsOnResume: _this.resumeFunc 
+                    });
+                },
+                //openFull---全屏方式打开窗口
+                openPhotoDialog4(){  
+                    let _this = this;          
+                    btPage.openFull({
+                        url: "/demo/test.html?test_param=4342",
+                        jsOnResume: _this.resumeFunc,
+                        isTransparent: true
+                    });
+                },
+                //openFull---全屏入栈方式打开窗口（不透明）
+                openPhotoDialog5(){  
+                    let _this = this;          
+                    btPage.openFull({
+                        url: "/demo/test.html?test_param=abc",
+                        jsOnResume: _this.resumeFunc,
+                        isTransparent: false//可以不传，默认不透明
+                    });
+                },
+                // openModal---传url
+                openPhotoDialog2(){
+                    let _this = this;
+                    btPage.openModal({ 
+                        url: "/demo/test.html",
+                        params: {
+                            test_param: "abc"
+                        },
+                        jsOnResume: _this.resumeFunc
+                    })//h5模态窗口
+                },
+                openPhotoDialog3(){
+                    let _this = this;
+                    btPage.openModal({ 
+                        component: subComponent,
+                        params: {
+                            test_param: "abc"
+                        },
+                        jsOnResume: _this.resumeFunc
+                    })//h5模态窗口
+                }
+            }
+        }) 
+    </script>
+</body>
+</html>

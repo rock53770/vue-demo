@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html id="ng-app">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <style type="text/css">
+        body{
+            padding: 10px;
+            background: #F8F8F8;
+        }
+        h2{
+            /* padding-bottom: 30px; */
+        }
+        h2 a{
+            margin-left:10px;
+        }
+        ol{
+            padding-left: 25px;
+        }
+        ol li{
+            margin-bottom: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #558EC4;
+            font-size: 14px;
+        }
+        .wrapper{
+            margin-top: 10px;
+        }
+        /*模态弹层*/
+        .webDialog-wrapper{
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .ks-fixed{
+            position: fixed;
+        }
+        .webDialog-wrapper{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .webDialog-wrapper .mask{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .webDialog-wrapper .content{
+            position: absolute;
+            z-index: 999;
+            top: 50%;
+            left: 50%;
+            background: #ffffff;
+            border-radius: 13px;
+            width: 280px;
+            margin-left: -140px;
+            margin-top: -200px;
+        }
+        .webDialog-wrapper .tip{
+            width: 100%;
+            padding: 13px 15px;
+            line-height: 1.5;
+            color: #333333;
+            font-size: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .webDialog-wrapper .action-btns{   
+            width: 100%;
+        }
+        .webDialog-wrapper .action-btns .btn{    
+            display: block;
+            text-align: center;
+            line-height: 45px;
+            border-top: 1px solid #e2e2e2;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="mainController">
+            <p>这是一个基础版本网页，引入了jquery</p>
+            <div class="wrapper">
+                <!-- <h2>当前第{{num}}个页面<a bt-sref="/demo/webDialog/index?num={{num + 1}}">再开个页面</a></h2> -->
+                <ol>
+                    <li>
+                        <a onclick="openPhotoDialog1()">open--普通跳转(该方式wap端无法回调)</a>
+                    </li>
+                    <li>
+                        <a onclick="openPhotoDialog4()">openFull--全屏（这在wap端表现也是一个webModel）</a>
+                    </li>
+                    <li>
+                        <a onclick="openPhotoDialog5()">openFull--全屏入栈方式打开窗口（不透明）</a>
+                    </li>
+                    <li>
+                        <a onclick="openPhotoDialog2()">openModal--传url</a>
+                    </li>
+                </ol>
+                <div class="show1">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="show2">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div ui-view></div>
+            </div>
+    </div>
+    <!-- <script src="http://static.cheok.com/require/require.js"></script> -->
+    <script src="http://static.cheok.com/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../dist/webViewBridge.js"></script>
+    <script src="../dist/btPage.js"></script>
+    <script>  
+        let count = 0, testStr = '';
+        //页面后退回调
+        function resumeFunc (data) {
+            if(data){
+                console.log(data);
+                let param1 = data.aa;
+                let param2 = data.bb;
+
+                $('.show1').eq(0).text(`子级页面取得的值1：${param1}`);
+                $('.show1').eq(1).text(`子级页面取得的值2：${param2}`);
+
+                if(data.testStr){
+                    testStr += data.testStr;
+                    $('.show2 p').eq(0).text(`模态窗的传参--字符串：${testStr}`)
+                }
+
+                if(data.skipPath){
+                    btPage.open(data.skipPath);
+                }
+            } else{
+                console.log('没有传参');
+            }
+            count++;
+            $('.show2 p').eq(1).text(`回调了：${count}次`)
+        }
+        
+        function openPhotoDialog1(){
+            btPage.open({
+                url: "/demo/test.html",
+                jsOnResume: resumeFunc 
+            });
+        }
+
+        //openFull---全屏方式打开窗口
+        function openPhotoDialog4(){            
+            btPage.openFull({
+                url: "/demo/test.html?test_param=4342",
+                jsOnResume: resumeFunc,
+                isTransparent: true
+            });
+        }
+
+        //openFull---全屏入栈方式打开窗口（不透明）
+        function openPhotoDialog5(){            
+            btPage.openFull({
+                url: "/demo/test.html?test_param=abc",
+                jsOnResume: resumeFunc,
+                isTransparent: false//可以不传，默认不透明
+            });
+        }
+
+        // openModal---传url
+        function openPhotoDialog2(){            
+            btPage.openModal({
+                url: "/demo/test.html?test_param=abc",
+                jsOnResume: resumeFunc,
+                isTransparent: false//可以不传，默认不透明
+            });
+        }
+    </script>
+</body>
+</html>

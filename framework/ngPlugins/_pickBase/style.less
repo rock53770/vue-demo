@@ -1,0 +1,529 @@
+@import "~@/css/variables.less";
+@import "~@/css/mixin.less";
+
+// //外面又包裹了一个
+// .bt-ios-adapt{
+// 	position: fixed;
+// 	left: 0;
+// 	top: 0;
+// 	width: 100%;
+// 	height: 100%;
+// 	background-color: @bgWhite;
+// }
+// .ks-fixed [bt-ios-adapt]{
+// 	background-color: @bgWhite;
+// }
+.bt-pick-wrapper{
+    position: absolute;
+	top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: @bgLightWhite;
+	@paddingX: 15px;
+	z-index: 202;
+	font-size: @fontSize15;
+	>header{
+		position: relative;
+		background-color: @bgWhite;
+		box-sizing: content-box;
+		height: 45px;
+		line-height: 45px;
+		color: @fontColorDeepBlack;
+		text-align: center;
+		margin-bottom: 10px;
+		z-index: 999 ! important;
+		.half-border(bottom,@lightGray);
+		i {
+			position: absolute;
+			color:gray;
+			left: 15px;
+		}
+
+		.title{
+			font-size: @fontSize16;
+		}
+	}
+
+	@liTitleBgColor: #f4f4f4;
+    .scroll-box{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background-color: @bgWhite;
+        overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+    }
+	>.scroll-box{
+		background-color: @liTitleBgColor;
+		// position:relative;
+		top: 95px !important;
+		&.beautiful {
+			top: 0px !important;
+		}
+	}
+    //通用部分样式
+    .common-section{
+        padding-bottom: 15px;
+		background: @bgWhite;
+		header{
+			font-size: 0;
+			i.hot{
+				background: url(./ic_car_hot.png) no-repeat;
+				background-size: 16px auto;
+				width: 21px;
+				height: 25px;
+				display: inline-block;
+				position: relative;
+				top: 10px;
+				left: -2px;
+			}
+			span{
+				font-size: 15px;
+			}
+		}
+        ul{
+			padding: 0 20px 0 15px;
+            li{
+				float: left;
+				width: 33%;
+				padding: 0 5px;
+				div{
+					.half-border(all, @splitDarkGray, 3px, @bgWhite);
+					width: 100%;
+					position: relative;
+					margin: 10px 10px 0 0;
+				}
+				a{
+					display: block;
+					text-align: center;
+					color: @fontColorBlack;
+					height: 40px;
+					line-height: 40px;
+					min-width: 100%;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+				a.stress-item:active,&.curr a{
+					.half-border(all, #ffbdbd, 3px, #fff2f2);
+					color: @fontColorRed;
+				}
+            }
+		}
+		//热门品牌图文形式
+		&.hot-brand{
+			// margin-bottom: 15px;
+			padding-bottom: 0;
+			ul{
+				padding: 0;
+				li{
+					.half-border(all, #ececec);
+					&:after{
+						border-right: transparent;
+					}
+					&:nth-child(n+5):after{
+						border-top: transparent;
+					}
+					width: 25%;
+					height: 94px;
+					padding: 0;
+					position: relative;
+					a{
+						padding-top: 10px;
+						height: 100%;
+						img{
+							width: 45px;
+							height: 45px;
+							margin: 0 auto;
+						}
+						span{
+							margin: 8px 0 15px 0;
+						}
+					}
+				}
+			}
+		}
+    }
+    // -webkit-box-orient: vertical;
+    .data-list{
+        position: relative;
+        color: @deepBlack;
+        font-size: @f4;
+        background-color: @bgWhite;
+        //margin-bottom: 40px;
+        li{
+            position: relative;
+            padding: 0 15px;
+            height: 53px;
+            line-height: 53px;
+            .ks-clear;
+            .half-border(bottom, @splitLightGray);
+            a{
+                padding: 0 3px;
+                display: block;
+                &.displacement {
+                    padding: 0 0;
+                }
+            }
+            i{
+                position: absolute;
+                right: 20px;
+                top: 0;
+                font-size: @fontSize14;
+                display: none;
+            }
+            &.curr{
+                a,i{
+                    color: @primaryColorRed !important;
+                    display: block;
+                }
+            }
+            &.forbid{
+                background: @bgLightWhite;
+                color: @gray;
+                height: 35px;
+                line-height: 35px;
+            }
+        }
+    }
+    .search-header{
+        padding: 7px 15px;
+        height: auto;
+        line-height: 30px;
+        &:after{
+            border-width:0 !important;
+        }
+        .search-box{
+            margin: 0px 0px 0 0;
+        }
+        .cancel{
+            display: block;
+            font-size: 15px;
+            &.right{
+                margin-left: 10px;
+            }
+        }
+	}
+
+	.search-input {
+		padding: 0 15px;
+		height: 29px;
+		line-height: 29px;
+		margin:0 15px 10px 15px;
+		text-align: center;
+		background-color: @bgWhite;
+		border-radius: 3px;
+		color: #999;
+
+		// input {
+		//     // width: 100%;
+		//     height: 94%;
+		//     display: inline-block;
+		// }
+		i {
+			// position: absolute;
+			color:gray;
+		}
+	}
+	section{
+		header{
+			height: 45px;
+			line-height: 45px;
+			padding-left: @paddingX;
+		}
+	}
+	.cancel{
+		position: static;
+		margin-right: 10px;
+		i{
+			margin-left: -3px;
+			color: @fontColorGray;
+		}
+	}
+	.stance{
+		height: 70px;
+		&.beautiful {
+			height: 0;
+		}
+	}
+	.curr-city{
+		background: @bgWhite;
+		margin-bottom: 10px;
+		>div{
+			height: 52px;
+			line-height: 52px;
+			padding: 0 @paddingX;
+			position: relative;
+			i{
+				// margin-right: 6px;
+			}
+			.faild{
+				color: @fontColorRed;
+			}
+			span{
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 40px;
+			}
+		}
+	}
+	.provinceContainer{
+		// margin-top:15px;
+		ul{
+			li{
+				position: relative;
+				background: @bgWhite;
+				height: 45px;
+				line-height: 45px;
+				font-size: @fontSize15;
+				padding: 0;
+				a{
+					padding: 0 @paddingX;
+				}
+				.arrow-right{
+					position: absolute;
+					right: @paddingX;
+					top: 0;
+				}
+				&.brand-item{
+					height: 52px;
+					line-height: 52px;
+					a{
+						display: flex;
+						img{
+							margin-top: 2px;
+							width: 45px;
+							height: 45px;
+							margin-right: 5px;
+						}
+						div{
+							flex: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.list-container,.scroll-box{
+		ul li.codeItem{
+			padding: 0 @paddingX;
+			height: 35px;
+			line-height: 35px;
+			font-size: @fontSize16;
+			background: @liTitleBgColor !important;
+			&.all {
+				line-height: 42px;
+			}
+		}
+	}
+	.list-container{
+		position: absolute;
+		z-index: 998;
+		top: 45px;
+		right: 0;
+		bottom: 0;
+		left: 40%;
+		overflow-y: scroll;
+		-webkit-overflow-scrolling: touch;
+		padding-bottom: 70px;
+		background-color: @bgLightWhite;
+		&>.scroll-box {
+			background-color: @bgLightWhite;
+		}
+		&.city-container{
+			box-shadow: 0px 0px 15px 3px rgba(51, 51, 51, 0.3);
+		}
+		&.country-container, &.style-container{
+			top: 55px;
+			left: 0;
+			bottom: 0px;
+			ul li{
+				background-color: @bgWhite;
+			}
+		}
+		//车款
+		&.style-container{
+			top: 45px;
+			// >header{
+			// 	margin-bottom: 0;
+			// }
+			.filter-box{
+				li{
+					&.ks-clear{
+						height: auto;
+						padding: 5px 15px;
+					}
+					a{
+						float: left;
+						width: 25%;
+						min-width: 90px;
+						padding: 0 5px;
+						text-align: center;
+						height: 35px;
+						line-height: 35px;
+    					margin: 5px 10px 5px 0;
+						.half-border(all, @darkGray, 3px);
+						border-radius: 3px;
+						font-size: @f5;
+						color: @black;
+						&.chosed{
+							background: #fff2f2;
+							color: #e83c36;
+							&:after{
+								border-color: #ffbdbd;
+							}
+						}
+					}
+				}
+			}
+		}
+		.provName {
+			height: 53px;
+			line-height: 53px;
+			display: block;
+			text-align: center;
+			margin-bottom: 10px;
+			background-color: @bgWhite;
+		}
+		.allCity,.chosed-brand {
+			font-size: @f4;
+			display: inline-block;
+			padding-left: 15px;
+			line-height: 55px;
+			height: 55px;
+			.half-border(bottom,#e2e2e2);
+			width: 100%;
+			&.chosed-brand{
+				display: flex;
+				.brand-icon{
+					width: 45px;
+					height: 45px;
+					position: relative;
+					top: 5px;
+				}
+			}
+		}
+		.listColor{
+			background-color: @bgWhite;
+		}
+		ul{
+			li{
+				height: 55px;
+				line-height: 55px;
+				padding: 0 @paddingX;
+				font-size: @fontSize15;
+			}
+		}
+	}
+	//关键词匹配弹层
+	.city-keySearch{
+		position: absolute;
+		z-index: 999;
+		background-color: rgba(0,0,0,0.4);
+		top: 0 !important;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		ul,.no-data{
+			position: absolute;
+			top: 44px;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: @bgWhite;
+			overflow-x: hidden;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+		ul{
+			li{
+				line-height: 50px;
+				font-size: @fontSize16;
+				margin: 0 15px;
+				padding: 0 3px;
+				color: #333;
+			}
+		}
+		.no-data{
+			color: @fontColorGray;
+			font-size: @fontSize16;
+			margin-top: 100px;
+			text-align: center;
+		}
+	}
+
+	/*侧边栏字母 */
+	.letterNav {
+		z-index: 200;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		margin-top: -155px;
+		color:red;
+		text-align: center;
+		font-size: 11px;
+		// background: pink;
+		li {
+			// padding-right: 5px;
+			line-height: 18px;
+			position: relative;
+			// width: 50px; //宽度变大，方便触摸事件
+			// text-align: right;
+			// right: 5px;
+			padding: 0 5px;
+		}
+		.rightLetter {
+			width: 68px;
+			height: 60px;
+			position: absolute;
+			top: -20px;
+			right: 15px;
+			img {
+				width: 100%;
+			}
+			span {
+				position: absolute;
+				top: 50%;
+				right: 50%;
+				font-size: 24px;
+				margin-top: -12px;
+				margin-right: -5px;
+			}
+		}
+	}
+
+    //用于底部的站位
+    .stance{
+        height: 40px;
+        background: @bgWhite;
+	}
+
+    //通用底部固定操作栏
+    .fixd-bottom{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        padding: 10px 15px;
+        box-shadow: 0px 0px 7px 3px @splitLightGray;
+        background: #f8f8f8;
+        .btn{
+            display: block;
+            border-radius: 5px;
+            text-align: center;
+            background: @fontColorRed;
+            color: @bgWhite;
+            font-size: @fontSize16;
+            height: 50px;
+            line-height: 50px;
+        }
+    }
+}

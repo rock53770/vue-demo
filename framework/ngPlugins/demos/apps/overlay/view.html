@@ -1,0 +1,46 @@
+   <style type="text/css">
+        body{
+            padding: 10px;
+            background: #F8F8F8;
+        }
+        p{
+            margin-bottom: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #558EC4;
+            font-size: 14px;
+        }
+    </style>
+    <div>
+        <p>
+            <a ng-click="clickHandler1()">加载中</a>
+        </p>
+        <p>
+            <a ng-click="clickHandler2()">两个按钮，没有标题（as1）</a>
+        </p>
+        <p>
+            <a ng-click="clickHandler3()">两个按钮，有标题（as2）</a>
+        </p>
+        <p>
+            <a ng-click="clickHandler4()">一个按钮，没有标题（as3）</a>
+        </p>
+        <p>
+            <a ng-click="clickHandler5()">一个按钮，有标题（as4）</a>
+        </p>
+        <p>
+            <a ng-click="clickHandler6()">操作成功（ls1）</a>
+        </p>
+        <p>
+            <a ng-click="clickHandler7()">操作失败（ls2）</a>
+        </p>
+        <p>
+            <a ng-click="clickHandler8()">反馈文案，toast（as6）</a>
+        </p>
+
+        <div style="margin-top:50px;line-height: 1.5;">组件描述：
+            <p>1、Loading：加载中，对应的有hide事件</p>
+            <p>2、Say：通用警示组件，无按钮，定时自动消失</p>
+            <p>3、Confirm：通用确认弹层组件，需要触发一定的点击事件才会关闭</p>
+        </div>
+    </div><!-- #pbody END -->

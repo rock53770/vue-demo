@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html id="ng-app">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <style type="text/css">
+        body{
+            padding: 10px;
+            background: #F8F8F8;
+        }
+        h2{
+            /* padding-bottom: 30px; */
+        }
+        h2 a{
+            margin-left:10px;
+        }
+        ol{
+            padding-left: 25px;
+        }
+        ol li{
+            margin-bottom: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: #558EC4;
+            font-size: 14px;
+        }
+        .wrapper{
+            margin-top: 10px;
+        }
+    .webDialog-wrapper .content{
+        position: absolute;
+        z-index: 999;
+        top: 50%;
+        left: 50%;
+        background: #ffffff;
+        border-radius: 13px;
+        width: 280px;
+        margin-left: -140px;
+        margin-top: -200px;
+    }   
+        .webDialog-wrapper .tip{
+            width: 100%;
+            padding: 13px 15px;
+            line-height: 1.5;
+            color: #333333;
+            font-size: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .webDialog-wrapper .action-btns{   
+            width: 100%;
+        }
+        .webDialog-wrapper .action-btns .btn{    
+            display: block;
+            text-align: center;
+            line-height: 45px;
+            border-top: 1px solid #e2e2e2;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="mainController">
+            <p>这只是一个普通的angular demo页面，没有引入router，router应用的demo请用对应项目的demo页面进行查看</p>
+            <div style="color:red;">非router的页面不建议使用传url的方式加载，因为是用iframe方式去加载，对体验会有影响，当然，实在要用我也已经实现了</div>
+            <div class="wrapper">
+                <!-- <h2>当前第{{num}}个页面<a bt-sref="/demo/webDialog/index?num={{num + 1}}">再开个页面</a></h2> -->
+                <ol>
+                    <li>
+                        <a ng-click="openPhotoDialog1()">open--普通跳转(该方式wap端无法回调)</a>
+                    </li>
+                    <li>
+                        <a ng-click="openPhotoDialog4()">openFull--全屏（这在wap端表现也是一个webModel）</a>
+                    </li>
+                    <li>
+                        <a ng-click="openPhotoDialog5()">openFull--全屏入栈方式打开窗口（不透明）</a>
+                    </li>
+                    <li>
+                        <a ng-click="openPhotoDialog2()">openModal--传url</a>
+                        <div></div>
+                        <!-- <div>如果不是router应用，btPage暂时不支持这样调用。因为需要iframe去实现，回调也是个问题，so没实现的意义，如果一定要分建议用require去引入对应的controller和view进行调用</div> -->
+                    </li>
+                    <li>
+                        <a ng-click="openPhotoDialog3()">openModal--传控制器和模板打开模态弹层</a>
+                    </li>
+                </ol>
+                <div>
+                    <p>子级页面取得的值1：{{param1}}</p>
+                    <p>子级页面取得的值2：{{param2}}</p>
+                </div>
+                <div>
+                    <p>模态窗的传参--字符串：{{testStr}}</p>
+                    <p>回调了：{{count}}次</p>
+                </div>
+                <div ui-view></div>
+            </div>
+    </div>
+    <!-- <script src="http://static.cheok.com/require/require.js"></script> -->
+    <script src="http://static.cheok.com/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../dist/webViewBridge.js"></script>
+    <script src="http://static.cheok.com/angular/1.5.6/angular.js"></script>
+    <script src="../dist/btPageNg.js"></script>
+    <script>  
+        let index = angular.module("index", []);
+
+        // //简易调用方式
+        // index.factory("btPage", ['$compile', '$timeout', '$controller', "$location", window.btPage]);
+
+        //扩展式调用
+        index.factory("btPage", ['$compile', '$timeout', '$controller', "$location", btPage]);
+
+        index.controller("mainController", ["$scope", "$rootScope","$timeout", 'btPage',
+            function($scope, $rootScope, $timeout, btPage) {
+                $scope.count = 0;
+                $scope.testStr = "123";
+
+                //页面后退回调
+                function resumeFunc (data) {
+                    if(data){
+                        // console.log(data);
+                        $scope.param1 = data.aa;
+                        $scope.param2 = data.bb;
+
+                        if(data.testStr){
+                            $scope.testStr += data.testStr;
+                        }
+
+                        if(data.skipPath){
+                            btPage.open(data.skipPath);
+                        }
+                    } else{
+                        console.log('没有传参');
+                    }
+                    $scope.count++;
+                }
+                
+                $scope.openPhotoDialog1 = function(){
+                    btPage.open({
+                        url: "/demo/test.html",
+                        jsOnResume: resumeFunc 
+                    });
+                }
+
+                //openFull---全屏方式打开窗口
+                $scope.openPhotoDialog4 = function(){            
+                    btPage.openFull({
+                        url: "/demo/test.html?test_param=4342",
+                        jsOnResume: resumeFunc,
+                        isTransparent: true
+                    });
+                }
+
+                //openFull---全屏入栈方式打开窗口（不透明）
+                $scope.openPhotoDialog5 = function(){            
+                    btPage.openFull({
+                        url: "/demo/test.html?test_param=abc",
+                        jsOnResume: resumeFunc,
+                        isTransparent: false//可以不传，默认不透明
+                    });
+                }
+
+                // openModal---传url
+                $scope.openPhotoDialog2 = function(){
+                    btPage.openModal({ 
+                        url: "/demo/test.html",
+                        params: {
+                            test_param: "abc"
+                        },
+                        jsOnResume: resumeFunc,
+                        animateClass: 'an-slideDown'
+                    })//h5模态窗口
+                }
+
+                //openModal---传控制器和模板打开模态弹层（你也可以用require引入文件的方式去传对应的模板和控制器）
+                $scope.openPhotoDialog3 = function(){
+                    btPage.openModal({
+                        controller: ["$scope", '$stateParams', 'btPage', function($scope, $stateParams, btPage){
+                            
+                            console.log("$stateParams:", $stateParams);
+                            
+                            $scope.test_param = $stateParams.test_param;
+                    
+                            $scope.call1 = function () {
+                                btPage.goBack({
+                                    args: {aa: 111, bb: "小黄豆111", testStr: "豆"}
+                                });
+                            };
+                    
+                            $scope.call2 = function () {
+                                btPage.goBack({
+                                    args: {aa: 222, bb: "小黄豆222"}
+                                });
+                            };
+                    
+                            $scope.call3 = function () {
+                                btPage.goBack({
+                                    step: 2,
+                                    args: {aa: 222, bb: "小黄豆222"}
+                                });
+                            };
+                    
+                            $scope.skipToOther = function(){
+                                btPage.goBack({
+                                    step: 1,
+                                    args: {skipPath: '/car_appraisal/query'}
+                                });
+                            }
+                    
+                            //取消
+                            $scope.cancel = function(){
+                                btPage.goBack();
+                    
+                                // btPage.close();
+                            };
+                        }],
+                        template: `
+                        <div class="webDialog-wrapper">
+                            <div class="mask"></div>
+                            <div class="content">
+                                <div class="photo"></div>
+                                <div class="tip">
+                                    <p ng-if="!!modalId">modalId:{{modalId}}</p>
+                                    <p ng-if="!modalId">这不是个webModal</p>
+                                    <p>test_param:{{test_param}}</p>
+                                </div>
+                                <div class="action-btns">
+                                    <a class="btn" ng-click="call1()">返回1步，传参数111</a>
+                                    <a class="btn" ng-click="call2()">返回1步，传参数222</a>
+                                    <a class="btn" ng-click="call3()">返回2步，传参数222</a>
+                                    <a class="btn" ng-click="skipToOther()">关闭模态窗，并且跳转到其它页面</a>
+                                    <a class="btn" ng-click="cancel()">取消</a>
+                                </div>
+                            </div>
+                        </div>
+                        `,
+                        params: {
+                            test_param: $scope.testStr
+                        },
+                        jsOnResume: resumeFunc
+                    });
+                }
+            }
+        ]);
+
+        wv.getIsInApp().then(init, init);
+
+        function init(){
+            angular.bootstrap(document.getElementById('ng-app'), ['index']);
+        }
+    </script>
+</body>
+</html>

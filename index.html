@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>保险报价</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Pragma" content="no-cache">
+  <script>
+    (function () {
+      function e() {
+        var f = document.documentElement.clientWidth * 200 / 750;
+        window.fontSize = f;
+        document.querySelector("html").style.fontSize = f + "px"
+      }
+      e();
+      window.addEventListener("resize", e)
+    })();
+  </script>
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var url = "https://hm.baidu.com/hm.js?92b23d8e582a1160562e7bc88539c05f";
+      if(location.host === 'wxtest.bz-ins.com'){//测试环境
+        url = "https://hm.baidu.com/hm.js?a6f5b6fa2603bc461b3f8e180d069b8f";
+      } else if (location.host === 'prepinsuranceapixxb.bz-ins.com'){
+        url = "https://hm.baidu.com/hm.js?51cfaadc8e036efbfde9c270dc0056d1";
+      }
+      var hm = document.createElement("script");
+      hm.src = url;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<style data-vue-ssr-id="0897772e:0">
+.skeleton_tem-wrapper[data-v-91b72846] {
+  background-color: #fff;
+  z-index: 9999;
+  padding: 10px 10px 0;
+  height: 100vh;
+}
+.skeleton_tem-wrapper .skeleton-item-twoline[data-v-91b72846] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.skeleton_tem-wrapper .skeleton-item-oneline[data-v-91b72846] {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.skeleton_tem-wrapper .skeleton-list-box[data-v-91b72846] {
+  /* // 列表骨架 */
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.skeleton_tem-wrapper .skeleton-list-box .skeleton-head[data-v-91b72846] {
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
+}
+.skeleton_tem-wrapper .skeleton-list-box .skeleton-body[data-v-91b72846] {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.skeleton_tem-wrapper .skeleton-list-box .skeleton-body .skeleton-title[data-v-91b72846] {
+  height: 20px;
+}
+.skeleton_tem-wrapper .skeleton-list-box .skeleton-body .skeleton-content[data-v-91b72846] {
+  margin-top: 10px;
+  height: 50px;
+}
+.skeleton_tem-wrapper .skeleton-index .skeleton-banner[data-v-91b72846] {
+  height: 100px;
+}
+.skeleton_tem-wrapper .skeleton-title-two[data-v-91b72846] {
+  height: 40px;
+  padding: 10px;
+  position: relative;
+}
+.skeleton_tem-wrapper .skeleton-title-two[data-v-91b72846]::after {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 60px;
+  left: 10px;
+  top: 10px;
+}
+.skeleton_tem-wrapper .skeleton-title-two[data-v-91b72846]::before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 40px;
+  right: 10px;
+  top: 10px;
+}
+.skeleton_tem-wrapper .skeleton-title-one[data-v-91b72846] {
+  height: 40px;
+  padding: 10px;
+  position: relative;
+}
+.skeleton_tem-wrapper .skeleton-title-one[data-v-91b72846]::after {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 60px;
+  left: 10px;
+  top: 10px;
+}
+.skeleton_tem-wrapper .skeleton-box1[data-v-91b72846] {
+  width: 50%;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.skeleton_tem-wrapper .skeleton-box1 .title[data-v-91b72846] {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.skeleton_tem-wrapper .skeleton-box1 .content[data-v-91b72846] {
+  height: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.skeleton_tem-wrapper .skeleton-box2[data-v-91b72846] {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.skeleton_tem-wrapper .skeleton-box2 .title[data-v-91b72846] {
+  height: 30px;
+  width: 30px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.skeleton_tem-wrapper .skeleton-box2 .content[data-v-91b72846] {
+  height: 10px;
+  width: 20px;
+  margin: 0 auto;
+}
+.skeleton_tem-wrapper .skeleton-head[data-v-91b72846],
+.skeleton_tem-wrapper .skeleton-title[data-v-91b72846],
+.skeleton_tem-wrapper .skeleton-content[data-v-91b72846],
+.skeleton_tem-wrapper .skeleton-banner[data-v-91b72846],
+.skeleton_tem-wrapper .skeleton-title-one[data-v-91b72846]::after,
+.skeleton_tem-wrapper .skeleton-title-two[data-v-91b72846]::after,
+.skeleton_tem-wrapper .skeleton-title-two[data-v-91b72846]::before,
+.skeleton_tem-wrapper .skeleton-box1 .title[data-v-91b72846],
+.skeleton_tem-wrapper .skeleton-box1 .content[data-v-91b72846],
+.skeleton_tem-wrapper .skeleton-box2 .title[data-v-91b72846],
+.skeleton_tem-wrapper .skeleton-box2 .content[data-v-91b72846] {
+  background: #e5e5e5;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(25%, rgba(255, 255, 255, 0.15)), color-stop(25%, transparent));
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%);
+  background-size: 20rem 20rem;
+  -webkit-animation: skeleton-stripes-data-v-91b72846 1s linear infinite;
+          animation: skeleton-stripes-data-v-91b72846 1s linear infinite;
+}
+@-webkit-keyframes skeleton-stripes-data-v-91b72846 {
+from {
+    background-position: 0 0;
+}
+to {
+    background-position: 20rem 0;
+}
+}
+@keyframes skeleton-stripes-data-v-91b72846 {
+from {
+    background-position: 0 0;
+}
+to {
+    background-position: 20rem 0;
+}
+}
+</style></head>
+
+<body class="box-test">
+  <div id="app">
+    <div data-server-rendered="true" class="skeleton_tem-wrapper" data-v-91b72846><div class="skeleton-index" data-v-91b72846><div class="skeleton-banner" data-v-91b72846></div> <div class="skeleton-title-two" data-v-91b72846></div> <div class="skeleton-item-twoline" data-v-91b72846><div class="skeleton-box1" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div> <div class="skeleton-box1" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div> <div class="skeleton-box1" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div> <div class="skeleton-box1" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div> <div class="skeleton-box1" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div></div> <div class="skeleton-list-box" data-v-91b72846><div class="skeleton-head" data-v-91b72846></div> <div class="skeleton-body" data-v-91b72846><div class="skeleton-title" data-v-91b72846></div> <div class="skeleton-content" data-v-91b72846></div></div></div> <div class="skeleton-item2" data-v-91b72846><div class="skeleton-title-one" data-v-91b72846></div> <div class="skeleton-item-oneline" data-v-91b72846><div class="skeleton-box2" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div> <div class="skeleton-box2" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div> <div class="skeleton-box2" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div> <div class="skeleton-box2" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div> <div class="skeleton-box2" data-v-91b72846><div class="title" data-v-91b72846></div> <div class="content" data-v-91b72846></div></div></div></div></div> <!----><!----><!----><!----><!----><!----></div>
+  </div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>

@@ -1,0 +1,497 @@
+{
+	"object": [{
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 0,
+		"modelId": null,
+		"modelName": null,
+		"resultId": 33,
+		"result": "奥迪"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 0,
+		"modelId": null,
+		"modelName": null,
+		"resultId": 108,
+		"result": "广汽吉奥"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 80000167,
+		"modelName": "RS 5",
+		"resultId": 80000167,
+		"result": "奥迪 RS 5"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 80000168,
+		"modelName": "RS 7",
+		"resultId": 80000168,
+		"result": "奥迪 RS 7"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 80000179,
+		"modelName": "A3(进口)新能源",
+		"resultId": 80000179,
+		"result": "奥迪 A3(进口)新能源"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 80000362,
+		"modelName": "平行进口奥迪Q7",
+		"resultId": 80000362,
+		"result": "奥迪 平行进口奥迪Q7"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 80000274,
+		"modelName": "RS 3",
+		"resultId": 80000274,
+		"result": "奥迪 RS 3"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 80000275,
+		"modelName": "TT RS",
+		"resultId": 80000275,
+		"result": "奥迪 TT RS"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2841,
+		"modelName": "SQ5",
+		"resultId": 2841,
+		"result": "奥迪 SQ5"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2951,
+		"modelName": "Q3",
+		"resultId": 2951,
+		"result": "奥迪 Q3"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 3170,
+		"modelName": "A3",
+		"resultId": 3170,
+		"result": "奥迪 A3"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2264,
+		"modelName": "Q3(进口)",
+		"resultId": 2264,
+		"result": "奥迪 Q3(进口)"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2730,
+		"modelName": "S3",
+		"resultId": 2730,
+		"result": "奥迪 S3"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2734,
+		"modelName": "S5",
+		"resultId": 2734,
+		"result": "奥迪 S5"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2736,
+		"modelName": "S6",
+		"resultId": 2736,
+		"result": "奥迪 S6"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2737,
+		"modelName": "RS 6",
+		"resultId": 2737,
+		"result": "奥迪 RS 6"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2738,
+		"modelName": "S7",
+		"resultId": 2738,
+		"result": "奥迪 S7"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2739,
+		"modelName": "S8",
+		"resultId": 2739,
+		"result": "奥迪 S8"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 2740,
+		"modelName": "TTS",
+		"resultId": 2740,
+		"result": "奥迪 TTS"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 812,
+		"modelName": "Q5",
+		"resultId": 812,
+		"result": "奥迪 Q5"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 692,
+		"modelName": "A4L",
+		"resultId": 692,
+		"result": "奥迪 A4L"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 740,
+		"modelName": "A7",
+		"resultId": 740,
+		"result": "奥迪 A7"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 593,
+		"modelName": "Q5(进口)",
+		"resultId": 593,
+		"result": "奥迪 Q5(进口)"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 650,
+		"modelName": "A1",
+		"resultId": 650,
+		"result": "奥迪 A1"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 509,
+		"modelName": "A6",
+		"resultId": 509,
+		"result": "奥迪 A6"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 511,
+		"modelName": "R8",
+		"resultId": 511,
+		"result": "奥迪 R8"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 538,
+		"modelName": "A5",
+		"resultId": 538,
+		"result": "奥迪 A5"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 146,
+		"modelName": "A8",
+		"resultId": 146,
+		"result": "奥迪 A8"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 148,
+		"modelName": "TT",
+		"resultId": 148,
+		"result": "奥迪 TT"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 18,
+		"modelName": "A6L",
+		"resultId": 18,
+		"result": "奥迪 A6L"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 19,
+		"modelName": "A4",
+		"resultId": 19,
+		"result": "奥迪 A4"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 370,
+		"modelName": "A3(进口)",
+		"resultId": 370,
+		"result": "奥迪 A3(进口)"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 412,
+		"modelName": "Q7",
+		"resultId": 412,
+		"result": "奥迪 Q7"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 471,
+		"modelName": "A4(进口)",
+		"resultId": 471,
+		"result": "奥迪 A4(进口)"
+	}, {
+		"brandId": 33,
+		"brandName": "奥迪",
+		"type": 1,
+		"modelId": 472,
+		"modelName": "A6(进口)",
+		"resultId": 472,
+		"result": "奥迪 A6(进口)"
+	}, {
+		"brandId": 14,
+		"brandName": "本田",
+		"type": 1,
+		"modelId": 880,
+		"modelName": "奥德赛",
+		"resultId": 880,
+		"result": "本田 奥德赛"
+	}, {
+		"brandId": 32,
+		"brandName": "东风",
+		"type": 1,
+		"modelId": 561,
+		"modelName": "奥丁",
+		"resultId": 561,
+		"result": "东风 奥丁"
+	}, {
+		"brandId": 11,
+		"brandName": "菲亚特",
+		"type": 1,
+		"modelId": 89,
+		"modelName": "派力奥",
+		"resultId": 89,
+		"result": "菲亚特 派力奥"
+	}, {
+		"brandId": 96,
+		"brandName": "福田",
+		"type": 1,
+		"modelId": 80000288,
+		"modelName": "奥铃T3",
+		"resultId": 80000288,
+		"result": "福田 奥铃T3"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 3477,
+		"modelName": "GX6",
+		"resultId": 3477,
+		"result": "广汽吉奥 GX6"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 3480,
+		"modelName": "GP150",
+		"resultId": 3480,
+		"result": "广汽吉奥 GP150"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 3272,
+		"modelName": "E美",
+		"resultId": 3272,
+		"result": "广汽吉奥 E美"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 3159,
+		"modelName": "星旺L",
+		"resultId": 3159,
+		"result": "广汽吉奥 星旺L"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 3134,
+		"modelName": "星朗",
+		"resultId": 3134,
+		"result": "广汽吉奥 星朗"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 3139,
+		"modelName": "星旺M1",
+		"resultId": 3139,
+		"result": "广汽吉奥 星旺M1"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 3140,
+		"modelName": "星旺M2",
+		"resultId": 3140,
+		"result": "广汽吉奥 星旺M2"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 2885,
+		"modelName": "星旺CL",
+		"resultId": 2885,
+		"result": "广汽吉奥 星旺CL"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 2774,
+		"modelName": "奥轩GX5",
+		"resultId": 2774,
+		"result": "广汽吉奥 奥轩GX5"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 2571,
+		"modelName": "财运300",
+		"resultId": 2571,
+		"result": "广汽吉奥 财运300"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 2599,
+		"modelName": "财运100",
+		"resultId": 2599,
+		"result": "广汽吉奥 财运100"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 2568,
+		"modelName": "财运500",
+		"resultId": 2568,
+		"result": "广汽吉奥 财运500"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 2488,
+		"modelName": "星旺",
+		"resultId": 2488,
+		"result": "广汽吉奥 星旺"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 2114,
+		"modelName": "奥轩G3",
+		"resultId": 2114,
+		"result": "广汽吉奥 奥轩G3"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 2306,
+		"modelName": "奥轩G5",
+		"resultId": 2306,
+		"result": "广汽吉奥 奥轩G5"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 1015,
+		"modelName": "帅豹",
+		"resultId": 1015,
+		"result": "广汽吉奥 帅豹"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 967,
+		"modelName": "帅驰",
+		"resultId": 967,
+		"result": "广汽吉奥 帅驰"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 968,
+		"modelName": "帅威",
+		"resultId": 968,
+		"result": "广汽吉奥 帅威"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 969,
+		"modelName": "吉奥凯旋",
+		"resultId": 969,
+		"result": "广汽吉奥 吉奥凯旋"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 864,
+		"modelName": "帅舰",
+		"resultId": 864,
+		"result": "广汽吉奥 帅舰"
+	}, {
+		"brandId": 108,
+		"brandName": "广汽吉奥",
+		"type": 1,
+		"modelId": 865,
+		"modelName": "凯睿",
+		"resultId": 865,
+		"result": "广汽吉奥 凯睿"
+	}, {
+		"brandId": 53,
+		"brandName": "铃木",
+		"type": 1,
+		"modelId": 872,
+		"modelName": "奥拓",
+		"resultId": 872,
+		"result": "铃木 奥拓"
+	}],
+	"code": 1,
+	"extendObject": null,
+	"handelEntity": null,
+	"IsReOperational": false,
+	"message": null,
+	"page": null
+}

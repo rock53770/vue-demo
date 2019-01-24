@@ -1,0 +1,22 @@
+<div class="ks-fixed-wrapper">
+	<div class="bt-pick-wrapper" bt-ios-adapt='{top: "top"}'>
+		<header>
+			<span>选择区县</span>
+			<i class="icon iconfont icon-xingzhuangkaobei" tap-handler="goBack()"></i>
+		</header>
+		<div class="list-container country-container">
+			<div class="scroll-box">
+				<ul class="half-top-border">
+					<li class="half-bottom-border stress-item" ng-repeat="item in countryList" tap-handler="choseDistrict(item)">
+						<a class="ks-clear">
+							{{item[2]}}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- <div class="fixd-bottom">
+			<a class="btn" tap-handler="goBack()">上一级</a>
+		</div> -->
+	</div>
+</div>

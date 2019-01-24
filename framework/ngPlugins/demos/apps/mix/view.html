@@ -1,0 +1,100 @@
+	<style type="text/css">
+	.demo-wrapper section{
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		margin: 10px 10px 0 10px;
+		padding: 10px;
+		font-size: 13px;
+	}
+	.demo-wrapper section a{
+		color: #4593e2;
+		display: block;
+		line-height: 30px;
+	}
+	.demo-wrapper section img{
+		max-width: 100px;
+		max-height: 100px;
+	}
+	.demo-wrapper section p{
+		/*margin: 0 0 10px 0;*/
+	}
+	</style>
+<div class="demo-wrapper" bt-watermark='{code: "F017"}'>
+	<section>
+		<h3>选择品牌车型车款</h3>
+		<a tap-handler="pickBrand()">选择</a>
+		<p>{{brandInfo}}</p>
+	</section>
+	<section>
+		<h3>选择省市区</h3>
+		<a tap-handler="pickArea()">选择</a>
+		<p>{{areaInfo}}</p>
+	</section>
+
+	<section>
+		<h3>图片上传</h3>
+		<a tap-handler="uploadPic()">上传图片</a>
+		<div ng-repeat="pic in imgList">
+			<img ng-src="{{pic.url}}" />
+			<p>{{pic.url}}</p>
+		</div>
+	</section>
+
+	<section>
+		<h3>hybird登录返回</h3>
+		<p ng-if="userInfo.name">当前登录用户：{{userInfo.name}}</p>
+		<a ng-if="!userInfo.name" tap-handler="goToLogin()">去登录</a>
+	</section>
+
+<!-- 	<section ng-init="getLocationInfo()">
+		<h3>获取定位</h3>
+		<div>当前定位信息：</div>
+		<div ng-show="locationInfo">
+			<p>经度：{{locationInfo.longitude}}  纬度： {{locationInfo.latitude}}</p>
+			<p>地址：{{locationInfo.address}}</p>
+		</div>
+	</section> -->
+
+	<section>
+		<h3>获取省市信息</h3>
+		<div>
+			<a bt-city-select11 ng-model="cityInfo" tap-handler="pickArea()">{{cityInfo.cityId ? cityInfo.provinceName+cityInfo.cityName : "请选择"}}</a>
+		</div>
+	</section>
+
+	<section>
+		<h3>分享</h3>
+		<div>
+			<p><a tap-handler="sharePage()">主动触发分享</a></p>
+		</div>
+	</section>
+
+	<section>
+		<h3>页面跳转调试</h3>
+		<div>
+			<p><a bt-sref="http://192.168.1.7:3001/index.html#/demo/mix">打开一个新页面</a></p>
+			<p><a tap-handler="skip()">关闭当前页面和前1个页面，并且跳转到首页</a></p>
+		</div>
+	</section>
+
+	<section>
+		<h3>埋点</h3>
+		<div>
+			<p><a tap-handler="bury()">点击埋点</a></p>
+		</div>
+	</section>
+
+	<section>
+		<h3>打电话</h3>
+		<div>
+			<p><a tap-handler="wv.callUp('15068881707')">打电话</a></p>
+		</div>
+	</section>
+
+	<section>
+		<h3>日历</h3>
+		<div>
+			<p><input type="text" placeholder="请预约10天以内的日期" class="bt-date-picker" ng-model='bespeakDate' date-name="bespeakDate"></p>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,37 @@
+<div class="ks-fixed-wrapper">
+	<div class="bt-pick-wrapper" bt-ios-adapt='{top: "top"}'>
+		<header style="margin-bottom:0;">
+			<span>选择车型</span>
+			<i class="icon iconfont icon-xingzhuangkaobei" tap-handler="goBack()"></i>
+		</header>
+		<div class="list-container style-container">
+			<div class="scroll-box">
+				<ul class="filter-box" ng-if="gearBoxGroup && gearBoxGroup.length">
+					<li class="codeItem">手自动</li>
+					<li class="ks-clear">
+						<a ng-class="{'chosed': searchObj.gearBox===''}" tap-handler="searchObj.gearBox=''">全部</a>
+						<a ng-repeat="item in gearBoxGroup" ng-class="{'chosed': searchObj.gearBox===item}" tap-handler="searchObj.gearBox=item">{{item == 0 ? '手动': '自动'}}</a>
+					</li>
+				</ul>
+				<ul class="filter-box" ng-if="emissionGroup && emissionGroup.length">
+					<li class="codeItem">排量</li>
+					<li class="ks-clear">
+						<a tap-handler="searchObj.emission=''" ng-class="{'chosed': searchObj.emission===''}">全部</a>
+						<a ng-repeat="item in emissionGroup" ng-class="{'chosed': searchObj.emission===item}" tap-handler="searchObj.emission=item">{{item}}</a>
+					</li>
+				</ul>
+				<ul class="half-top-border">
+					<li class="codeItem" ng-repeat-start="yearItem in yearList">{{yearItem.year}}</li>
+					<li ng-repeat-end class="half-bottom-border stress-item" ng-repeat="item in yearItem.styleList" tap-handler="choseStyle(item)">
+						<a class="ks-clear">
+							{{item.styleName}}
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- <div class="fixd-bottom">
+			<a class="btn" tap-handler="goBack()">上一级</a>
+		</div> -->
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<style type="text/css">
+    body{
+        padding: 10px;
+        background: #F8F8F8;
+    }
+    h2{
+        padding-bottom: 30px;
+    }
+    h2 a{
+        margin-left:10px;
+    }
+    p{
+        margin-bottom: 20px;
+    }
+    a{
+        text-decoration: none;
+        color: #558EC4;
+        font-size: 14px;
+    }
+    .wrapper{
+        margin-top: 30px;
+    }
+</style>
+<div class="wrapper">
+    <h2>当前第{{num}}个页面<a bt-sref="/demo/btPage?num={{num + 1}}">再开个页面</a></h2>
+    <p>
+        <a ng-click="openPhotoDialog1()">open--普通跳转(该方式wap端无法回调)</a>
+    </p>
+    <p>
+        <a ng-click="openPhotoDialog4()">openFull--全屏透明（这在wap端表现也是一个webModel）</a>
+    </p>
+    <p>
+        <a ng-click="openPhotoDialog5()">openFull--全屏但是不透明（主要是测一下ios的特别定制窗口）</a>
+    </p>
+    <p>
+        <a ng-click="openPhotoDialog2()">openModal--传url</a>
+    </p>
+    <p>
+        <a ng-click="openPhotoDialog3()">openModal--传控制器和模板打开模态弹层</a>
+    </p>
+    <p>
+        <a tap-handler=""></a>
+    </p><Br/>
+    <div>
+        <p>子级页面取得的值1：{{param1}}</p>
+        <p>子级页面取得的值2：{{param2}}</p>
+    </div>
+    <Br/> 
+    <div>
+        <p>模态窗的传参--字符串：{{testStr}}</p>
+        <p>回调了：{{count}}次</p>
+    </div>
+    <div ui-view></div>
+</div><!-- #pbody END -->

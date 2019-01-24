@@ -1,0 +1,129 @@
+<div class="ks-fixed-wrapper">
+	<div class="bt-pick-wrapper" bt-ios-adapt='{top: "top"}'>
+		<!-- <header class="search-header">
+			<a class="cancel" tap-handler="cancelSearch()"><i class="iconfont icon-arrowleft"></i>返回</a>
+			<form class="search-box">
+				<i class="iconfont">&#xe63f;</i><input ng-model="vm.matchKey" placeholder="请输入城市名称或首字母查询" ng-click="searchfocus()" readonly="readonly" />
+				<b class="del-btn" ng-show="vm.matchKey" tap-handler="vm.matchKey=''"></b>
+			</form>
+		</header> -->
+		<!-- <div class="fixedBox"> -->
+		<header>
+			<span>选择城市</span>
+			<i class="icon iconfont icon-xingzhuangkaobei" tap-handler="cancelSearch()"></i>
+		</header>
+
+			<!--    <form class="search-box">
+					<i class="iconfont">&#xe63f;</i><input ng-model="vm.matchKey" placeholder="请输入城市名称或首字母查询" ng-click="searchfocus()" readonly="readonly" />
+					<b class="del-btn" ng-show="vm.matchKey" tap-handler="vm.matchKey=''"></b>
+				</form>   -->
+		<div class="search-input" ng-click="searchfocus()">
+			<i class="iconfont icon-searchicon"></i>
+			<!-- <input type="text" placeholder="城市名/拼音/首字母"  ng-model="vm.matchKey"  ng-click="searchfocus()" readonly="readonly"  readonlyunselectable="on"/>  -->
+			<span>城市名/拼音/首字母</span>
+		</div>
+		<!-- </div> -->
+		<div class="scroll-box scroll-box1 my-scroll" load-mark="loadMark1">
+			<div class="wrapper">
+				<section class="half-top-border half-bottom-border curr-city" ng-if="showLocation" ng-init="getLocation()">
+					<header class="half-bottom-border">当前位置</header>
+					<div ng-class="{true:'stress-item'}[!isLoadingCity&&!!currLocation]">
+						<i class="iconfont">&#xe649;</i>
+						<span ng-show="!isLoadingCity&&!!currLocation" tap-handler="choseCityDirect(currLocation)">{{currLocation[2]}}</span>
+						<span class="loading" ng-show="isLoadingCity">正在定位当前城市..</span>
+						<span class="faild" tap-handler="getLocation()" ng-show="!isLoadingCity&&!currLocation">定位失败，请点击重试</span>
+					</div>
+				</section>
+
+				<section class="half-top-border half-bottom-border common-section" ng-if="browseCityList.length">
+					<header class="half-bottom-border">最近浏览</header>
+					<ul class="ks-clear">
+						<li class="ks-clear" ng-repeat="item in browseCityList">
+							<div tap-handler='choseCityDirect(item)'>
+								<a class="stress-item">{{item[2]}}</a>
+							</div>
+						</li>
+					</ul>
+				</section>
+
+				<section class="half-top-border half-bottom-border common-section" ng-if="showHot" ng-init="getHotCity()">
+					<header class="half-bottom-border"><i class="hot"></i><span>热门城市</span></header>
+					<ul class="ks-clear">
+						<li class="ks-clear" ng-repeat="item in hotCity">
+							<div tap-handler='choseCityDirect(item)'>
+								<a class="stress-item">{{item[2]}}</a>
+							</div>
+						</li>
+					</ul>
+				</section>
+
+				<section class="provinceContainer">
+					<ul class="half-top-border" ng-if="!required">
+						<li class="codeItem all">*</li>
+						<li>
+							<a class="stress-item" tap-handler="choseProvince(null, '全国')">全国</a>
+						</li>
+					</ul>
+					<ul class="half-top-border category-box" ng-repeat="letterItem in letters">
+						<li class="codeItem" ng-if="letterItem.items.length > 0" data-id="{{letterItem.letter}}">{{letterItem.letter}}</li>
+						<li ng-repeat="provItem in letterItem.items" tap-handler="choseProvince(provItem[0], provItem[2])">
+							<a class="stress-item" ng-class="{false: 'half-bottom-border'}[$last]">
+								{{provItem[2]}}
+							</a>
+							<!-- <i class="iconfont arrow-right"></i> -->
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<div class="list-container city-container an-slideRight" ng-if="cityList&&cityList.length>0">
+			<div class="scroll-box">
+				<div class="half-top-border">
+					<!-- <span class="provName" ng-if="currCity">{{currCity.cityName}}</span> -->
+					<ul class="listColor">
+						<li class="allCity" ng-if="!required">全部城市</li>
+						<li class="half-bottom-border stress-item" ng-repeat="cityItem in cityList" tap-handler="choseCity(cityItem)" ng-init="initCityScroll()">
+							<a class="ks-clear">
+								{{cityItem[2]}}
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <div class="stance"></div> -->
+			</div>
+			<!-- <div class="fixd-bottom">
+				<a class="btn" tap-handler="cityList=[]">上一级</a>
+			</div> -->
+		</div>
+
+		<!-- 关键词搜索弹层 -->
+		<div class="city-keySearch scroll-box an-fadeInOut" ng-if="showKeyMatch">
+			<header class="search-header">
+				<form class="search-box">
+					<i class="iconfont icon-searchicon"></i><input class="an-fadeInOut" ng-model="vm.matchKey" placeholder="请输入城市名称或首字母查询" type="text"/>
+					<b class="del-btn" ng-show="vm.matchKey" tap-handler="vm.matchKey=''"></b>
+				</form>
+				<a class="cancel right" tap-handler="cancelSearch()">取消</a>
+			</header>
+			<ul ng-if="vm.matchKey">
+				<li class="half-bottom-border" ng-repeat="item in matchCitys" tap-handler="choseCityDirect(item)">{{item[2]}}</li>
+			</ul>
+			<div class="no-data" ng-if="vm.matchKey&&matchCitys.length===0">无匹配结果</div>
+		</div>
+
+		<!-- 侧边字母栏 -->
+		<div class="letterNav">
+			<ul>
+				<li class='start'>#</li>
+				<li ng-repeat="item in letters" ng-if="item.items.length > 0">
+					<span class="letter1">{{item.letter}}</span>
+					<div class="rightLetter" ng-show="currLetter == item.letter && isTouch">
+						<img src="../../_pickBase/cityOn@2x.png">
+						<span>{{item.letter}}</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

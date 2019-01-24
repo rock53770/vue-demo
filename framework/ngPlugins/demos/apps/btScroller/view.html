@@ -1,0 +1,43 @@
+<div class="notice-wrapper">
+    <div class="notice-lists">
+		<div class="btns">
+			<p>当前第{{pagerParams.currentPage}}页</p>
+			<a tap-handler="refresh()">刷新列表</a>
+			<a tap-handler="scrollToTop()">滚动到顶部</a>
+		</div>
+        <bt-scroller class="data-container" get-data="pullData()" current-page="pagerParams.currentPage" ref="scroller1">
+            <div class="notice-list">
+                <div class="data-item" ng-repeat="item in dataList track by $index">
+                    <div class="notice-time">{{item.publishTime|date:'MM-dd HH:mm'}}</div>
+                    <div class="aNotice-box stress-item">
+                        <div class="aNotice-title item-title"><span>{{item.title}}</span><i class="readState" ng-if="item.isRead==0"></i></div>
+                        <div class="aNotice-center">
+                            <img ng-if="item.publicFileVo && item.publicFileVo.fullPath" ng-src="{{item.publicFileVo.fullPath}}">
+                            <p>{{item.summary}}</p>
+                        </div>
+                        <div class="aNotice-footer" ng-if="item.linkUrl || hasDetail">
+                            <p>查看详情</p>
+                            <i class="iconfont arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="showNoData">暂无数据</div>
+            </div>
+        </bt-scroller>
+    </div>
+</div>
+<style>
+	.btns{
+		position: fixed;
+		z-index: 100;
+		top:0;
+		right:0;
+		padding: 10px;
+		text-align: right
+	}
+	.btns a{
+		display: inline-block;
+		margin-left: 5px;
+		color: blue;
+	}
+</style>

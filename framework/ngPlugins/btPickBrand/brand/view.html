@@ -1,0 +1,99 @@
+<div class="ks-fixed-wrapper">
+	<div class="bt-pick-wrapper" bt-ios-adapt='{top: "top"}'>
+		<header>
+			<span>选择车型</span>
+			<i class="icon iconfont icon-xingzhuangkaobei" tap-handler="cancelSearch()"></i>
+		</header>
+		<div class="search-input" ng-click="searchfocus()">
+			<i class="iconfont icon-searchicon"></i>
+			<span>请输入品牌或车系</span>
+		</div>
+		<div class="scroll-box scroll-box1 my-scroll" load-mark="loadMark1">
+			<div class="wrapper">
+				<section class="half-top-border half-bottom-border common-section hot-brand" ng-if="showHot">
+					<header class="half-bottom-border"><i class="hot"></i><span>热门品牌</span></header>
+					<ul class="ks-clear">
+						<li class="ks-clear" ng-repeat="item in hotBrand">
+							<a class="stress-item" tap-handler='choseBrand(item)'>
+								<img class="brand-icon" ng-src="{{item.logoUrl}}" head-err-src="{{defaultBrandImg}}" />
+								<span>{{item.brandName}}</span>
+							</a>
+						</li>
+					</ul>
+				</section>
+
+				<section class="provinceContainer">
+					<!-- <ul class="half-top-border" ng-if="!required">
+						<li class="codeItem all">*</li>
+						<li>
+							<a class="stress-item" tap-handler="choseProvince(null, '全国')">全国</a>
+						</li>
+					</ul> -->
+					<ul class="half-top-border category-box" ng-repeat="letterItem in letters">
+						<li class="codeItem" ng-if="letterItem.items.length > 0" data-id="{{letterItem.letter}}">{{letterItem.letter}}</li>
+						<li class="brand-item" ng-repeat="brandItem in letterItem.items" tap-handler="choseBrand(brandItem)">
+							<a class="stress-item">
+								<img class="brand-icon" ng-src="{{brandItem.logoUrl}}" head-err-src="{{defaultBrandImg}}" />
+								<div ng-class="{false: 'half-bottom-border'}[$last]">{{brandItem.brandName}}</div>
+							</a>
+							<!-- <i class="iconfont arrow-right"></i> -->
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<div class="list-container city-container an-slideRight" ng-if="factoryList&&factoryList.length>0">
+			<div class="scroll-box">
+				<div class="half-top-border">
+					<!-- <span class="provName" ng-if="currModel">{{currModel.cityName}}</span> -->
+					<ul class="listColor">
+						<li class="chosed-brand"><img class="brand-icon" ng-src="{{currBrand.logoUrl}}" head-err-src="{{defaultBrandImg}}" /><span>{{currBrand.brandName}}</span></li>
+						<li class="codeItem" ng-repeat-start="factory in factoryList">{{factory.factoryName}}</li>
+						<li ng-repeat-end class="half-bottom-border stress-item" ng-repeat="item in factory.modelList" tap-handler="choseModel(item)" ng-init="initCityScroll()">
+							<a class="ks-clear">
+								{{item.modelName}}
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- <div class="stance"></div> -->
+			</div>
+			<!-- <div class="fixd-bottom">
+				<a class="btn" tap-handler="modelList=[]">上一级</a>
+			</div> -->
+		</div>
+
+		<!-- 关键词搜索弹层 -->
+		<div class="city-keySearch scroll-box an-fadeInOut" ng-if="showKeyMatch">
+			<header class="search-header">
+				<form class="search-box">
+					<i class="iconfont icon-searchicon"></i><input class="an-fadeInOut" ng-model="vm.matchKey" placeholder="请输入品牌或车系" type="text"/>
+					<b class="del-btn" ng-show="vm.matchKey" tap-handler="vm.matchKey=''"></b>
+				</form>
+				<a class="cancel right" tap-handler="cancelSearch()">取消</a>
+			</header>
+			<ul ng-if="vm.matchKey">
+				<li class="half-bottom-border" ng-repeat="item in matchCitys">
+					<a ng-if="item.modelId" tap-handler="choseModelDirect(item)">{{item.result}}</a>
+					<a ng-if="!item.modelId" tap-handler="choseBrand(item)">{{item.result}}</a>
+				</li>
+			</ul>
+			<div class="no-data" ng-if="vm.matchKey&&matchCitys.length===0">无匹配结果</div>
+		</div>
+
+		<!-- 侧边字母栏 -->
+		<div class="letterNav">
+			<ul>
+				<li class='start'>#</li>
+				<li ng-repeat="item in letters" ng-if="item.items.length > 0">
+					<span class="letter1">{{item.letter}}</span>
+					<div class="rightLetter" ng-show="currLetter == item.letter && isTouch">
+						<img src="../../_pickBase/cityOn@2x.png">
+						<span>{{item.letter}}</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
