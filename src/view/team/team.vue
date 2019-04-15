@@ -46,7 +46,6 @@
 <script>
 import teamService from '../../api/teamService.js'
 import Chart from '../../components/Chart/index'
-import { Toast } from 'vant';
 
 
 export default {
@@ -68,13 +67,15 @@ export default {
 				title: '七日收益', 
 				height: 200, 
 				id: 'profit' 
-			}
+			},
+			backShow: true
 		}
 	},
 	components: { Chart },
 	methods: {
 		// 页面跳转方式
 		goPage(path) {
+			// this.$router.push({ path: path});
             btPage.open({
                 url: path,
                 container_style: 1,
@@ -140,9 +141,10 @@ export default {
 		},
 		setHeader() {
 			var self = this;
+			console.log(self.backShow)
 			this.$store.dispatch("setHead", {
 				menuContent: `<div class="cl-white" style="line-height: 44px">排行榜</div>`,
-				needBack: false,
+				needBack: self.backShow,				
 				menuClick: () => {
 					btPage.open({
 						url: "/team/team_charts",
@@ -156,6 +158,7 @@ export default {
 		this.getData()
 	},
 	mounted() {
+		this.backShow = this.$route.query.type == 1 ? true : false 
 		setPageTitle('我的团队');
 		this.setHeader()
 		wv.customBackAction(function() {
@@ -168,6 +171,8 @@ export default {
 		wv.setWebViewInfo({
 			wvBackDisable:1
 		})
+		
+		
 	},
 }
 </script>

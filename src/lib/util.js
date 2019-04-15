@@ -4,6 +4,33 @@
  */
 (function () {
   var Util = {
+    REGEXP: {
+      /**
+       * 手机。
+       */
+      PHONE: /^(\+\d+)?1[3456789]\d{9}$/,///^(((13[0-9]{1})|(15[0-9]{1})|(14[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
+
+      /**
+       * 邮编。
+       */
+      ZIPCODE: /^[1-9][0-9]{5}$/,
+
+      /**
+       * 邮箱。
+       */
+      EMAIL: /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+
+      /**
+       * 日期。
+       */
+      DATE: /^(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1])$/,
+
+      /**
+       * 身份证。
+       */
+      // IDCARD: /(^\d{18}$)|(^\d{15}$)|(^\d{17}(\d|X|x)$)/
+      IDCARD: /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{2}$)/
+    },
     type: function (obj) {
       var class2type = {};
       "Boolean Number String Function Array Date RegExp Object Error".split(" ").forEach(function (e, i) {
@@ -601,6 +628,10 @@
         return "";
       }
     },
+    isMobile:function(){
+      var ua = window.navigator.userAgent.toLowerCase();
+      return /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(ua);
+    },
     getNavHeight: function () {
       var ua = window.navigator.userAgent.toLowerCase();
       if(GConfig.isInApp){
@@ -693,6 +724,39 @@
         url = "https://insuranceapixxb.bz-ins.com"
       }
       return url
+    },
+    /**
+     * 四舍五入保留小数
+     * @param  {Number}  num            需要转化的数值
+     * @param  {Integer}  cutNum        保留的小数位数
+     * @param  {Boolean} isRemoveZero    是否移除末尾的0，默认不需要
+     * @return {Number}
+     */
+    toFixed: function (num, cutNum, isRemoveZero) {
+      var sReturn = '0';
+      num = parseFloat(num);
+      if (isNaN(num)) {
+        num = 0;
+      }
+      cutNum = cutNum || 0;
+      if (num.toString() == "NaN") {
+        num = 0;
+      } else {
+        num = num.toFixed(cutNum);
+      }
+
+      sReturn = num.toString();
+      if (isRemoveZero) {
+        // console.log(sReturn);
+        // console.log(typeof sReturn);
+        while (sReturn.indexOf('.') > -1 && sReturn.endsWith('0')) {
+          sReturn = sReturn.substr(0, sReturn.length - 1);
+        }
+        if (sReturn.endsWith(".")) {
+          sReturn = sReturn.substring(0, sReturn.length - 1);
+        }
+      }
+      return sReturn;
     }
   }
 

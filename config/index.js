@@ -18,9 +18,13 @@ module.exports = {
         }
       },
       '/api': {
-        target: 'http://wxtest.bz-ins.com/',      //测试环境代理  
-        // target: 'http://wxdev.bz-ins.com/',      //测试环境代理  
+        // target: 'http://wxtest.bz-ins.com/',      //测试环境代理
+        // target: 'http://wxdev.bz-ins.com/',      //测试环境代理
         // target: 'https://insuranceapixxb.bz-ins.com/',  // 生产
+        // target: 'http://192.168.129.180:8088/',  // 张阳
+        target: 'http://192.168.129.239:4001/',  // 黄雪东
+        // target: 'http://192.168.129.207:8082/',  // 邵琦
+        // target: 'http://wapinsxxb.acar168.cn:5516/',
         // target: 'http://prepinsuranceapixxb.bz-ins.com/',    //预发布环境代理
         changeOrigin: true, //跨域的话，代理转发请求
         pathRewrite: {

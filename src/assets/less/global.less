@@ -1,0 +1,196 @@
+/* 通用模块组件 */
+/* border 1px */
+.half-border(top, @border-color:#dcdedf){
+    &:after{
+        border-top-width: 1px !important;
+    }
+}
+.half-border(right, @border-color:#dcdedf){
+    &:after{
+        border-right-width: 1px !important;
+    }
+}
+.half-border(bottom, @border-color:#dcdedf){
+    &:after{
+        border-bottom-width: 1px !important;
+    }
+}
+.half-border(left, @border-color:#dcdedf){
+    &:after{
+        border-left-width: 1px !important;
+    }
+}
+.half-border(all, @border-color:#dcdedf, @border-radius:0px, @bg-color: transparent){
+    &:after{
+        border-width: 1px !important;
+    }
+}
+.half-border(@_, @border-color:#dcdedf, @border-radius:0px, @bg-color: transparent){
+    position: relative;
+    z-index: 1;
+    &:after{
+        z-index: -1;
+        box-sizing: border-box;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200%;
+        height: 200%;
+        background-color: @bg-color;
+        transform: scale(0.5,0.5);
+        -webkit-transform: scale(0.5,0.5);
+        border-radius: @border-radius * 2;
+        border-style: solid;
+        border-color: @border-color;
+        border-width: 0 0 0 0;
+        transform-origin: top left;
+        -webkit-transform-origin: top left;
+    }
+}
+
+//盒子布局
+.display-box(@orient: horizontal){
+    display: flex;
+    -moz-box-orient: @orient;
+    -webkit-box-orient: @orient;
+}
+.compatibility-container(@orient: horizontal) {
+    .display-box(@orient);
+    width: 100%;
+}
+.box-flex(@flex: 1){
+    display: block;
+    flex: @flex;
+}
+
+//清除浮动
+.ks-clear {
+	&:after {
+		content: '';
+		display: block;
+		height: 0;
+		clear: both;
+	}
+}
+.px2rem(@name, @px){
+		@{name}: @px / 100 * 1rem;
+}
+/**
+* 背景适配
+* @param @src       2x的url
+* @param @src3x     3x的url
+* @param @size-x background
+*/
+
+.bg-img-set(@src, @src3x, @sizeX: 100%, @sizeY: auto) {
+	background: url(@src) no-repeat;
+	background: -webkit-image-set(url(@src) 2x, url(@src3x) 3x) no-repeat;
+	background-size: @sizeX @sizeY;
+	background-position: center;
+}
+/*
+* 定义盒子宽高
+*@params @width 盒子宽
+*@params @height 盒子高
+*/
+.wh(@width, @height) {
+    width: @width;
+    height: @height;
+}
+/* 正方形 */
+.square(@size){
+	width: @size;
+	height: @size;
+}
+// 定义字体核心：字体大小、颜色
+.font-core(@fz, @color) {
+	font-size: @fz;
+	color: @color;
+}
+/*
+* 定义字体，颜色，对其方式，是否加粗
+*/
+.font(@fz, @color, @align: center, @lh, @weight: normal) {
+	.font-core(@fz, @color);
+	text-align: @align;
+	line-height: @lh;
+	font-weight: @weight;
+}
+/* flex容器 */
+.flexWrap(@jc: flex-start, @ai: center, @fw: no-wrap, @fd: row) {
+     .display-box();
+    justify-content: @jc;
+    align-items: @ai;
+    flex-wrap: @fw;
+    flex-direction: @fd;
+
+}
+/* 背景色渐变 业务默认色*/
+.bgLinearGradual(@direction: right, @color1: #fe602d, @color2: #ff7d00) {
+  background: @color1;
+  background: linear-gradient(@direction, @color1, @color2);
+}
+/* 透明背景 */
+.transparentBg(@color: #000, @alpha: 0.6) {
+	background: fade(@color, @alpha * 100%);
+}
+/*定位*/
+.position(@position, @key1:left, @key2:top, @value1, @value2, @zIndex: 1){
+    position: @position;
+    @{key1}:@value1;
+    @{key2}:@value2;
+		z-index: @zIndex;
+}
+/*定位2*/
+.position2(@position, @key1:left, @value1, @key2:top, @value2, @zIndex: 1){
+	position: @position;
+	@{key1}:@value1;
+	@{key2}:@value2;
+	z-index: @zIndex;
+}
+/*全屏*/
+.wholeScreen(@zIndex: 1){
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: @zIndex;
+}
+
+.iphoneX{
+	padding-top: ~"calc(44px + constant(safe-area-inset-top))";
+	padding-top: ~"calc(44px + env(safe-area-inset-top))";
+}
+
+.iphoneXstatus{
+	@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+		/* 这代表IPX */
+		/* 目前这种设备像素比 和 尺寸是很“奇葩”、特殊的，基本可以确定是 IPX */
+		height: 44px;
+		//height: constant(safe-area-inset-top);
+		//height: env(safe-area-inset-top);
+
+	}
+}
+
+/**
+ * 小标签分隔线
+ * ex: aaa | bbb | ccc
+ */
+.split-line(@height: 10px, @color: #eee, @key1: top, @value1: 0, @key2: left, @value2: 0) {
+	position: relative;
+
+	&:before {
+		content: '';
+		display: inline-block;
+		.wh(1px, 2 * @height);
+		background: @color;
+		transform-origin: 0 0;
+		transform: scale(0.5);
+		position: absolute;
+		@{key1}:@value1;
+		@{key2}:@value2;
+	}
+}

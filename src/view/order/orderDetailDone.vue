@@ -273,8 +273,9 @@ export default {
                 this.toolsBtn = data.object.toolsBtn
                 this.strongInsurance = [];
 
-                // const BASE_URL = "https://insuranceapixxb.bz-ins.com" // 生产
-			    const BASE_URL = "http://wxtest.bz-ins.com"  // 测试
+                const BASE_URL = "https://insuranceapixxb.bz-ins.com" // 生产
+                // const BASE_URL = "http://prepinsuranceapixxb.bz-ins.com"  // 予发布
+			    // const BASE_URL = "http://wxtest.bz-ins.com"  // 测试
 
                 this.config = {
                     sharePhotos: data.object.share.icon,

@@ -21,7 +21,6 @@
 </template>
 <script>
 import teamService from '../../api/teamService'
-import { Toast } from 'vant';
 
 export default {
 	// 团队提现记录

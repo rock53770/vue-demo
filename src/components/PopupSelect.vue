@@ -78,6 +78,7 @@
 <style lang="less">
 .popup-select {
   max-height:200px;
+  font-size:16px;
   ul {
     li {
       position: relative;
@@ -105,6 +106,7 @@
     display: block;
     height: 40px;
     line-height: 40px;
+    font-size:16px;
     text-align: center;
   }
 }

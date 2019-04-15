@@ -7,23 +7,23 @@
 		</div>
 		<div class="ft16 plr10 bg-white ta-c">
 			<div class="flex-center justify-sb van-hairline--bottom h40 lh40 cl-gray">
-				<p class="w-10">排名</p>
+				<p class="w-15">排名</p>
 				<p class="w-30">代理人ID</p>
-				<p class="w-20">团队规模</p>
-				<p class="w-30">总收入</p>
+				<p class="w-30">团队规模</p>
+				<p class="w-25">总收入</p>
 			</div>
 			<!-- <div class="list bg-white" :style="{'top': (navHeight+200) + 'px'}"> -->
 			<div class="bg-white">
 				<div class="flex-center justify-sb van-hairline--bottom h60" v-for="(item, index) in lists" :key="index">
-					<div class="w-10">
+					<div class="w-15">
 						<img src="../../assets/icons/team/icon_top1@3x.png" height="32" width="24" v-if="index == 0">
 						<img src="../../assets/icons/team/icon_top2@3x.png" height="32" width="24" v-else-if="index == 1">
 						<img src="../../assets/icons/team/icon_top3@3x.png" height="32" width="24" v-else-if="index == 2">
 						<span v-else>{{ index+1 }}</span>
 					</div>
 					<div class="w-30">{{ item.userID }}</div>
-					<div class="w-20">{{ item.teamSize ? item.teamSize : 0 }}</div>
-					<div class="w-30 ft18 cl-orange">{{ item.teamIncome | currency2 }}</div>
+					<div class="w-30">{{ item.teamSize ? item.teamSize : 0 }}</div>
+					<div class="w-25 ft18 cl-orange">{{ item.teamIncome | currency2 }}</div>
 				</div>
 			</div>
 		</div>

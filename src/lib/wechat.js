@@ -1,28 +1,17 @@
 /**
  * 微信通用封装
  *
- * @author dongxiaochai@163.com
- * @since 2017-10-20
  */
-// import Vue from 'vue'
-// import { WechatPlugin } from 'vux'
 import loginService from '@/api/loginService'
 import logo from '@/assets/images/logo.png'
-// import jsonp from '@/lib/jsonp'
 import quoteService from '@/api/quoteService';
-// Vue.use(WechatPlugin)
 
 const isIOS = !!navigator.userAgent.match(/iPhone|iPod|iPad/i)
 let jssdkInstance = null;//当前有效的jssdk实例
 let isfirstConfigSuccess = false//第一次加载保存的url地址（ios下只用这个地址注册一次就好了）
-
-// const FIRST_URL = location.href
-const FIRST_URL = isIOS ? (Util.getSessionData("firstUrl") || location.href) : location.href
-//第一次进入的时候的url
-
 let jsApiList = GConfig.jsApiList
-// alert(113723787137)
-// alert(FIRST_URL)
+const FIRST_URL = location.href//第一次进入的时候的url
+
 //微信jssdk分类实例
 function _wechatRegistrar(){
     let _this = this;
@@ -53,7 +42,6 @@ _wechatRegistrar.prototype = {
                 }
 
                 let url = (isIOS ? FIRST_URL : location.href).split('#')[0]
-
                 loginService.getJssdkConfig({
                     url: url,
                     // url: encodeURIComponent(url),

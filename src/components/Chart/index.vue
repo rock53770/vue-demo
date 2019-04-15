@@ -56,7 +56,7 @@ export default {
                     show: true,
                     type: "value",
                     min: function(value) {
-                        return Math.max(value.min - 2, 0);
+                        return Math.max(value.min);
                     },
                     splitLine: {
                         show: true,

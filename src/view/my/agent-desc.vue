@@ -154,19 +154,28 @@
           //   return "111"
           // }
         },
-        created() {
+        beforeRouteEnter (to, from, next) {
+          Toast.loading({
+              duration:0,
+              forbidClick:false,
+              message: '加载中..'
+          });
           myService.userAgent().then((res) => {
+              Toast.clear();
               if(res.code == 1){
-                  this.agent = res.object.userAgentInfoVo;
-                  if(this.agent.auditStatus != 3){
-                    setPageTitle('审核结果');
-                  }
-                  if(this.agent.auditStatus == 2 || this.agent.auditStatus == 4){
-                    this.agenResult = "审核结果:" + this.auditText[this.agent.auditStatus];
-                    if(this.agent.auditRemark){
-                       this.agenResult += ("  审核备注:" + this.agent.auditRemark)
+                  next(vm => {
+                    vm.agent = res.object.userAgentInfoVo;
+                    if(vm.agent.auditStatus != 3){
+                      setPageTitle('审核结果');
                     }
-                  }
+                    if(vm.agent.auditStatus == 2 || vm.agent.auditStatus == 4){
+                      vm.agenResult = "审核结果:" + vm.auditText[vm.agent.auditStatus];
+                      if(vm.agent.auditRemark){
+                        vm.agenResult += ("  审核备注:" + vm.agent.auditRemark)
+                      }
+                    }
+                  })
+
               } else {
                   Toast(res.message)
               }

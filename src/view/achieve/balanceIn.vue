@@ -8,12 +8,20 @@
                         <p class="flex-center justify-sb">{{item.flowVoTypeContent}}</p>
                         <p class="flex-center justify-sb" v-if="item.money">{{item.money|currency2('￥',2)}}</p>
                     </div>
-                    <div class="cl-gray van-hairline--bottom">
+                    <div class="cl-gray van-hairline--bottom" v-if="item.flowVoTypeValue!==8">
                         <div class="item-user-name flex-center justify-sb h45 plr12">
                             <p>车主姓名：{{item.ownerName}}</p>
                         </div>
                         <div class="plr12 pt8 pb8">
                             <p class="flex-center justify-sb mb8"><span>车牌号：{{item.plate}}</span></p>
+                        </div>
+                    </div>
+                    <div class="cl-gray van-hairline--bottom" v-else>
+                        <div class="item-user-name flex-center justify-sb h45 plr12">
+                            <p>投保人姓名：{{item.ownerName}}</p>
+                        </div>
+                        <div class="plr12 pt8 pb8">
+                            <p class="flex-center justify-sb mb8"><span>产品名：{{item.goodsName}}</span></p>
                         </div>
                     </div>
                     <div class=" flex-center justify-sb h45 plr12 cl-gray">
@@ -24,7 +32,7 @@
             </div>
             <!-- 无结果 -->
             <div class="no-data-box empty" slot="empty">
-                <img src="../../components/btScroller/transaction.png" height="95" width="140">
+                <img src="../../components/btScroller/data-no.png" height="95" width="140">
                 <p class="mt20">还没有收支记录哟，快去下单赚奖励吧~</p>
             </div>
         </btScroller>

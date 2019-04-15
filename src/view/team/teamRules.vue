@@ -20,8 +20,8 @@
                             <p>获得商业险报废<span class="cl-red fw-b">1.0%</span>奖励</p>
                         </section>
                         <section class="pl10 pt4 pb4">
-                            <p class="cl-blue">一级推荐出单</p>
-                            <p>获得商业险报废<span class="cl-red fw-b">1.0%</span>奖励</p>
+                            <p class="cl-blue">二级推荐出单</p>
+                            <p>获得商业险报废<span class="cl-red fw-b">0.5%</span>奖励</p>
                         </section>
                     </div>
                 </div>
@@ -69,7 +69,10 @@
 <script>
 import teamService from '../../api/teamService'
 export default {
-    name: "teamRule"
+    name: "teamRule",
+    mounted() {
+        setPageTitle('活动规则');
+    },
 }
 </script>
 <style lang="less" scoped>

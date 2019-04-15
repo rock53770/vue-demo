@@ -73,7 +73,10 @@ require("echarts/lib/component/markPoint");
               type: 'value',
               // min:'dataMin',
               min: function(value) {
-                  return Math.max(value.min - 2,0);
+                  return Math.min(value.min);
+              },
+              max: function (value) {
+                  return Math.max(value.max);
               },
               splitLine:{
                 show:true,
@@ -92,7 +95,7 @@ require("echarts/lib/component/markPoint");
               // }
           },
           series: [{
-              data: [2, 93, 90, 93, 129, 1330, 132],
+              data: [-2, 93, 90, 93, 129, -1330, 132],
               type: 'line',
               lineStyle:{
                 color:"#fc6b47"

@@ -47,4 +47,18 @@ export default {
       }
     });
   },
+  testPay(data) { // 支付测试-无用的
+    return api({
+        method: 'post',
+        url: '/weixin/wxpayPaymentNotify/testPay',
+        data: data
+    });
+  },
+  payConfig(data) { // 订单支付
+    return api({
+        method: 'post',
+        url: '/insurance/policy/pay/config',
+        data: data
+    });
+  },
 }

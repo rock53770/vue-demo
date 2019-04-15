@@ -1,7 +1,7 @@
 
 <template>
     <div :class="['search-box', 'pos-a', 'l0', 'r0', searchDataType==2?'h-100':'']" :style="{ top: navHeight + 'px'}">
-        <div class="search-name-box plr10 pos-r bg-white van-hairline--bottom" :style="{ top: 0 }">
+        <div class="search-name-box pos-r bg-white van-hairline--bottom" :style="{ top: 0 }">
             <van-search v-model="searchObject.key" background="#ffffff" placeholder="请输入姓名或车牌" show-action @search="search">
                 <div slot="action" @click="search" v-show="searchObject.key">搜索</div>
             </van-search>
@@ -193,7 +193,7 @@ export default {
             height: 95px;
             width: 140px;
             margin: 0 auto;
-            background: url('../../assets/images/search_undata.png') no-repeat center;
+            background: url('../../assets/images/no-search-data.png') no-repeat center;
             background-size: contain;
         }
     }

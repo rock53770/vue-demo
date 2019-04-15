@@ -51,7 +51,7 @@
             </template>
             <template v-else>
                 <div class="ta-c" style="padding-top: 80px;">
-                    <img src="../../assets/images/no-people.png" style="width:140px;height:95px;">
+                    <img src="../../assets/images/no-people.png" style="height:95px">
                     <div class="cl-gray ft16 mt15">您还没有推荐人哦，快去邀请吧</div>
                 </div>
             </template>

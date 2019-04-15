@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div class="bg-white pt15 pb10 plr12 pos-f l0 r0" :style="{ top: navHeight + 'px' }">
-            <div class="flex-center justify-c ft16 cl-black bg-white ta-c">
+        <div class="bg-white pt15 pb10 plr12 pos-f l0 r0 mb10" :style="{ top: navHeight + 'px' }">
+            <div class="flex-center justify-c ft16 cl-black bg-white ta-c mb15">
                 <div class="w-50">
                     <div class="mb10">本月收入</div>
                     <div class="cl-orange ft18 fw-b">{{ count.month }}</div>
@@ -21,7 +21,7 @@
                 <div class="u-sch ft16 cl-white u-btn ml10" @click="renovate">查询</div>
             </div>
         </div>
-        <div class="info-srcoller flex-1 w-100 pos-f l0 r0 b0 mt10" :style="{ top: (navHeight+ 112) + 'px' }">
+        <div class="info-srcoller flex-1 w-100 pos-f l0 r0 b0 mt10" :style="{ top: (navHeight + 130) + 'px' }">
             <template v-if="list.length">
                 <scroller :height="'100%'" :noDataText="'我是有底线的'" :on-refresh="refresh" :on-infinite="infinite" ref="scroller">
                     <div class="plr15 bg-white" v-for="(item, index) in list" :key="index">
@@ -30,11 +30,11 @@
                                 <img :src="item.teamIcon" height="45" width="45" class="bdr-50">
                                 <div class="ml15">
                                     <p class="ft16 fw-b mb5">{{ item.name }}</p>
-                                    <p class="ft14 mb5"><span>{{ item.relationType | type }}</span><span class="ml10">{{ item.orderAmount | currency2() }}元</span></p>
+                                    <p class="ft14 mb5"><span>{{ item.relationType | type }}</span><span v-if="item.relationType !== 4" class="ml10">{{ item.orderAmount | currency2 }}元</span></p>
                                     <p class="ft12 cl-gray mb5">{{ $util.formatDate(item.createTime, 'yyyy-MM-dd HH:mm') }}</p>
                                 </div>
                             </div>
-                            <div class="ft18 cl-orange">+{{ item.contributionAmount | currency2() }}</div>
+                            <div class="ft18 cl-orange">{{ 0>item.contributionAmount ? '': '+' }}{{ item.contributionAmount | currency2() }}</div>
                         </div>
                     </div>
                 </scroller>
@@ -84,6 +84,10 @@ export default {
     },
     methods: {
         renovate() {
+            Toast.loading({
+				mask: true,
+				message: '加载中...'
+			});
             let self = this;
             let param = {
                 startTime: this.timer.startDate,
@@ -154,7 +158,7 @@ export default {
                 }
             } else {
                 if (pickerDate <= end) {
-                    if (pickerDate < star && pickerDate > timerStart) {
+                    if ((pickerDate < star) && (pickerDate < timerStart)) {
                         Toast("结束时间不可早于起始时间");
                     } else {
                         this.timer.endDate = str;
@@ -243,7 +247,7 @@ export default {
 }
 
 .info-srcoller {
-  height: calc(100vh - 112px);
+  height: calc(100vh - 130px);
   .loading-layer {
     .no-data-text {
       &::after {

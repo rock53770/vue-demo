@@ -11,7 +11,7 @@
 					<div class="ml10">
 						<h3 class="ft16">任务{{ index | sequence }}</h3>
 						<h3 class="ft14 d-black fs-n mt5">{{ item.template }}</h3>
-						<p class="cl-gray ft14 lh30">(还差 {{ (item.num - item.surplus) | surplus }} 位)</p>
+						<p class="cl-gray ft14 lh30">(还差 {{ (item.num - item.surplus) | surplus }} {{ item.type == 1 ? '位': '单' }})</p>
 					</div>
 				</div>		
 				<van-button :type="item.course == 3? 'default': 'primary' " 
@@ -21,7 +21,7 @@
 			
 			<div class="h100 pos-f b0 l0 r0 plr12">
 				<p class="ta-c cl-gray ft14 mb10">以{{ createTime }}后实际推荐和出单业绩为准</p>
-				<van-button round :type="canBecreated ? 'primary': ''" block class="cl-white ft16" @click="goOpenTeam">立即开启团队模式</van-button>
+				<van-button round :type="canBecreated ? 'primary': ''" block :class="canBecreated ?  'h-shadow': 'u-shadow'" class="cl-white ft16" @click="goOpenTeam">立即开启团队模式</van-button>
 			</div>
 		</div>
 		
@@ -83,8 +83,9 @@ export default {
 	methods: {
 		// getUserInfo
 		getUserInfo() {
-			// const BASE_URL = "https://insuranceapixxb.bz-ins.com" // 生产
-			const BASE_URL = "http://wxtest.bz-ins.com"  // 测试
+			const BASE_URL = "https://insuranceapixxb.bz-ins.com" // 生产
+			// const BASE_URL = "http://prepinsuranceapixxb.bz-ins.com"  // 予发布
+			// const BASE_URL = "http://wxtest.bz-ins.com"  // 测试
 			myService.userAgent()
 				.then((res) => {
 					if (res.code == 1) {
@@ -114,6 +115,7 @@ export default {
 				if (res.code == 1) {
 					btPage.open({
 						url: '/team',
+						params: { type: 0},
 						container_style: 1,
 						type: 3
 					});
@@ -272,8 +274,8 @@ export default {
 		this.getUserInfo()
 	},
 	mounted() {
-		document.body.classList.add("bg-white");
-		setPageTitle('升级团队');
+		// document.body.classList.add("bg-white");
+		setPageTitle('我的团队');
 		
 		this.setHead()
 		
@@ -288,9 +290,9 @@ export default {
 			wvBackDisable:1
 		})
 	},
-	beforeDestroy: function() {
-      	document.body.classList.remove("bg-white");
-	},
+	// beforeDestroy: function() {
+    //   	document.body.classList.remove("bg-white");
+	// },
 	filters: {
 		sequence(n) {
 			switch(n) {
@@ -323,6 +325,7 @@ export default {
 	}
 	.u-shadow {
 		box-shadow: 0 2px 4px 0 rgba(216,216,216, 0.5);
+		background: linear-gradient(to bottom, #d8d8d8, #cfcfcf);
 		/deep/ span {
 			font-size: 14px;
 			color: #ffffff;

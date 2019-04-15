@@ -2,9 +2,9 @@
   	<div class="cash">
       	<div class="mb10 plr10">
             <p class="lh40 cl-gray ft14">提现账户</p>
-			<div class="flex hadcard pt10 pb10 pl20 bdr4 pos-r" v-if="cardInfo.encryBankCardNo"  @click="goPage('/my/card', { type: 1})">
+			<div class="flex hadcard pt10 pb10 pl20 bdr4 pos-r" v-if="cardInfo.encryBankCardNo"  @click="addCard">
                 <div class="mr10 bg-white icons ta-c"><img src="../../assets/icons/team/images_bank-logo@3x.png" height="22" width="22"></div>
-                <div class="cl-white pos-a posCard" @click="goPage('/my/card', { type: 1})">更换新卡</div>
+                <div class="cl-white pos-a posCard">更换新卡</div>
                 <div class="cl-white">
                     <p class="ft18">{{ cardInfo.bank }}</p>
                     <p class="ft12">储蓄卡</p>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
 			</div>
-			<div class="pt10 pb10 h60 uncard flex-center justify-c" v-else  @click="goPage('/my/card', { type: 1})">
+			<div class="pt10 pb10 h60 uncard flex-center justify-c" v-else  @click="addCard">
 			    <img src="../../assets/icons/add@2x.png" width="20" height="20">
 			    <p class="cl-gray ml10">添加银行卡</p>
 			</div>
@@ -102,7 +102,17 @@ export default {
             });
         },
         addCard() {
-            this.goPage("/my/card", { type: 1 });
+            btPage.open({
+                url: "/my/card",
+                container_style: 1,
+                params: { type: 1 },
+                type: 3,
+                jsOnResume: () => {
+                    if (GConfig.isInApp) {
+                        this.getData();
+                    }
+                }
+            });
         },
         withdraw() {
             if (!this.cardInfo.encryBankCardNo) { Toast("请添加银行卡"); return; }

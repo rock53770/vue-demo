@@ -32,9 +32,9 @@
                         </div>
                         <div>收入贡献 <span class="cl-orange ft18 ml10">{{ item.income | currency2('¥','2') }}</span></div>
                     </div>
-                    <div class="flex-center h30 lh30" v-if="item.recommendedTotal">
+                    <div class="flex-center h30 lh30">
                         <span>已推荐</span>
-                        <div class="mlr5 ft0 h30">
+                        <div class="mlr5 ft0 h30" v-if="item.recommendedList.length">
                             <img v-for="(i, index) in item.recommendedList" :key="index" 
                                 :src="i.avatar" width="25" height="25" class="bdr-50">
                         </div>

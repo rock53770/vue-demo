@@ -99,13 +99,13 @@ import myService from "@/api/myService";
                     }
                 });
             },
-            // 
+            //
             addCard() {
                 this.goPage("/my/card");
             },
             // 提现请求
             withdraw() {
-                
+
                 if (!this.cardInfo.encryBankCardNo) {
                     Toast("请添加银行卡");
                     return;
@@ -138,11 +138,11 @@ import myService from "@/api/myService";
                         if(res.code == 1 && res.object){
                             if(res.object.code === 0){
                                 myService.transfer({
-                                    transferMoney:total
+                                    transferMoney:this.cash
                                 }).then((res) => {
                                     this.loading = false;
                                     if(res.code == 1){
-                                        let url = this.$route.query.type == 1 ? "/my/cash-result" : "/team/team_result"
+                                        let url = this.$route.query.type == 1 ? "/team/team_result" : "/my/cash-result"
                                         btPage.open({
                                             url: url,
                                             container_style: 1,
@@ -168,7 +168,7 @@ import myService from "@/api/myService";
             },
         },
         mounted() {
-            setPageTitle("提取团队余额");
+            setPageTitle("提现");
         }
     };
 </script>

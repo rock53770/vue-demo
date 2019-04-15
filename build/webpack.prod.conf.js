@@ -39,7 +39,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         compress: {
           warnings: false, // 在UglifyJs删除没有用到的代码时不输出警告
           drop_debugger: true,// 丢弃调试语句
-          drop_console: process.env.IS_APP ? false : true // 删除所有的 `console` 语句// 还可以兼容ie浏览器
+          drop_console: process.env.IS_APP ? false : false // 删除所有的 `console` 语句// 还可以兼容ie浏览器
         }
       },
       sourceMap: config.build.productionSourceMap,

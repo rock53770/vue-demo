@@ -21,10 +21,10 @@
           <div class="lh50 ta-c" @click="onClickCancel" v-text="cancelText||'取消'"></div>
         </div> -->
       </div>
-      <div v-if="cancelText" class="" style="height:55px">
+      <div v-if="cancelText" class="h55">
         <!-- <div  class="pos-f b0 w-100"> -->
           <div class="h5 bg"></div>
-          <div class="lh50 ta-c" @click="onClickCancel" v-text="cancelText"></div>
+          <div class="lh50 ta-c ft16" @click="onClickCancel" v-text="cancelText"></div>
         <!-- </div> -->
       </div>
 
@@ -98,6 +98,9 @@
         } else {
           this.show = false;
           this.$emit('update:curColumn', i);
+          if (i[this.valueKey] !== this.curColumn[this.valueKey]) {
+            this.$emit('click-item-change');
+          }
           this.$emit('click-item', i);
         }
       },
@@ -108,6 +111,7 @@
 .popup-radio {
   max-height:300px;
   overflow:auto;
+  font-size:16px;
   // flex:1;
   -webkit-overflow-scrolling:touch;
   ul {

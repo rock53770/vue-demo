@@ -39,11 +39,11 @@ let DEFAULT_CONFIG = {
 	    //开发环境
 	    development: {
         	// appId: 'wxecc8b92540f58725', //开发微信公众号
-            appId: 'wx22904344508fbb5f', //开发微信公众号
+            appId: 'wx3000c783b31e6ddd', //开发微信公众号
           isTest: false || sessionStorage.isTest,
         //   isTest: true,
-          verifyWeChat:false, //微信登录授权验证
-          wechatDebug: false //微信jsapi是否调试模式
+          verifyWeChat:true, //微信登录授权验证
+          wechatDebug: true //微信jsapi是否调试模式
 	    },
 	    // //预发布环境
 	    // preproduction: {

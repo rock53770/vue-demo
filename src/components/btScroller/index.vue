@@ -149,13 +149,14 @@ export default {
         },
         //请求加载结束进行回调
         fetchDataCallback(result, done) {
+			// console.log('TCL: fetchDataCallback -> result', result)
             let _this = this;
 
             if (result && result.length) {
                 //数组那种，约定第一项做为判断依据吧
                 result = result[0];
             }
-            if (result.code === 1) {
+            if (result.code == 1) {
                 if (result.page) {
                     _this.hasNextPage =
                         result.page.totalPages > _this.pageIndex;
@@ -268,23 +269,25 @@ export default {
             background-size: contain;
         }
         .no-notice{
-          background-image:url('./no-notice.png');
+          background-image:url('../../assets/images/no-message.png');
+          background-size: contain;
         }
     }
-    .no-data-box.transaction {
-        .info {
-            height: 95px;
-            width: 140px;
-            margin: 0 auto;
-            background: url('./transaction.png') no-repeat center;
-            background-size: contain;
-        }
-    }
+    // .no-data-box.transaction {
+        // .info {
+            // height: 95px;
+            // width: 140px;
+            // margin: 0 auto;
+            // background: url('./transaction.png') no-repeat center;
+            // background-size: contain;
+        // }
+    // }
 
     .no-data-box.anomaly {
         i {
             background: url('./nonet.png') no-repeat center;
             background-size: 113px 104px;
+            background-size: contain;
         }
     }
 }

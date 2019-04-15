@@ -1,8 +1,9 @@
 <template>
     <div class="quoteDetail">
         <template v-if="!isLoading">
-             <div class="notice-bar plr20 flex-center justify-sb">
+             <div class="notice-bar plr20 flex-center justify-sb ft14">
                 <span>标黄险种为已选不计免赔</span>
+               <a class="cl-orange" href="tel:4006038787">联系客服</a>
             </div>
             <div class="h65 bg-white flex-center plr5 arrow-block-right" @click="gopage('/order/car_detail',{id:dataObject.id})">
                 <img src="../../assets/icons/car-icon.png" width="50" class="mr15">
@@ -17,12 +18,12 @@
                     <div class="flex pl12 pr5 pb10 van-hairline--bottom">
                         <img :src="item.icon" width="54" height="54" class="bdr-50" style="border: 1px solid #eeeeee;">
                         <section class="ft16 flex-1 ml10">
-                            <div :class="['flex-center','justify-sb','ft16','lh30', item.showDetails ? 'arrow-block-right ': '', 'name']">
+                            <div class="flex-center justify-sb ft16 lh30 name">
                                 <div class="ft16">
                                     <span>{{ item.companyName }}</span>
                                     <span class="cl-orange" v-if="item.price">{{ item.price|currency('￥','2') }}</span>
                                 </div>
-                                <div class="cl-orange mr20 ft14 type ta-r">{{ item.handlerStatusName }}</div>
+                                <div class="cl-orange mr7 ft14 type ta-r">{{ item.handlerStatusName }}</div>
                             </div>
                             <div v-if="!item.isRemark">
                                 <span :class="['ft13', i.additionalInsuranceType ? 'yellow': 'cl-gray']" v-for="(i, x) in item.quoteInsurances" :key="x">
@@ -37,13 +38,15 @@
                     </div>
                     <div class="flex-center justify-sb h45 plr12">
                         <p class="cl-gray">{{ $util.formatDate(item.handlerTime, 'yyyy-MM-dd HH:mm') }}</p>
-                        <button v-if="item.actionType" class="w65 h28 ft13 cl-white bdr3 van-button--primary" @click="goOrderDetail(item.action, item.id)">{{ item.actionType == 1? '立即核保':'立即投保' }}</button>
+                        <button v-if="item.actionType"
+                                class="w80 h28 ft13 cl-white bdr14 van-button--primary"
+                                @click="goOrderDetail(item.action, item.id)">查看详情</button>
                     </div>
                 </div>
             </div>
 
             <div class="pos-f b0 l0 r0 h70 bg-white p10 btn-shadow" v-if="dataObject.showAdd">
-                <van-button round type="default" block class="cl-white ft16 van-button--primary" @click="addNewObject()">新增报价单</van-button>
+                <van-button round type="default" block class="cl-white ft16 van-button--primary" @click="addNewObject()">发起新询价</van-button>
             </div>
 
             <van-popup v-model="addObjectShow" position="bottom" :overlay="true" :lock-scroll="true">
@@ -198,7 +201,7 @@ export default {
         this.getData();
     },
     mounted () {
-        setPageTitle('报价结果');
+        setPageTitle('车险报价详情');
     }
 }
 </script>
@@ -218,6 +221,12 @@ export default {
 .lists {
     padding-bottom: 90px !important;
 }
+  .bdr14 {
+    border-radius: 14px;
+  }
+  .ft14 {
+    font-size: 14px;
+  }
 </style>
 <style>
 @media screen and (max-width: 350px)  {

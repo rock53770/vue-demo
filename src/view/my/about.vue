@@ -11,7 +11,7 @@
         <img src="~@/assets/images/qr.png" width="148">
         <p>扫码关注新欣保公众号</p>
       </div>
-      <div class="pos-a l0 r0 b0 ta-c ft10">v2.2.2</div>
+      <div class="pos-a l0 r0 b0 ta-c ft10">v2.3.0</div>
     </div>
   </div>
 </template>

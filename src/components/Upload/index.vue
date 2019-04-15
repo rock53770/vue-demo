@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       show: false,
-      isWx:Util.userAgentType() == "wechat",
+      isWx:Util.userAgentType() == "wechat" && Util.isMobile(),
       isInApp:GConfig.isInApp,
       localData:[]
     };

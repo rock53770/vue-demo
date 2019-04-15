@@ -9,7 +9,7 @@
       <div class="pl10 clearfix pics">
         <div class="fl w-50 pr10 mb10 ta-c ">
             <div class="h100 bg-img-sample1 pos-r bdr5">
-              <upload :pics="idFrontPic" v-show="!idFrontPic[0] || !idFrontPic[0].content" class="w-100 h-100" max="1">
+              <upload :pics="idFrontPic" v-show="!(idFrontPic[0] && idFrontPic[0].content)" class="w-100 h-100" max="1">
                 <div class="w-100 h-100 flex-center justify-c">
                     <span class="plr10 lh24 bdr10 bg-o5 cl-white">点击上传</span>
                 </div>
@@ -28,7 +28,7 @@
         </div>
         <div class="fl w-50 pr15 mb10 ta-c">
             <div class="h100 bg-img-sample2 pos-r bdr5">
-              <upload :pics="idBackPic" v-show="!idBackPic[0] && !idBackPic.content" class="w-100 h-100" max="1" >
+              <upload :pics="idBackPic" v-show="!(idBackPic[0] && idBackPic[0].content)" class="w-100 h-100" max="1" >
                 <div class="w-100 h-100 flex-center justify-c">
                     <span class="plr10 lh24 bdr10 bg-o5 cl-white">点击上传</span>
                 </div>

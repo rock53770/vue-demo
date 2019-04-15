@@ -76,7 +76,7 @@
                     <span class="flex-1">邀请好友</span>
                     <span class="icon-right"></span>
                 </div>
-                <div class="flex-center lh50 van-hairline--bottom" @click="goTeam">
+                <div class="flex-center lh50 van-hairline--bottom" @click="goTeam" v-if="isInApp">
                     <img src="~@/assets/icons/teamicon.png" width="19" height="20" class="mr5">
                     <div class="flex-1 flex-center justify-sb">
                         <span class="ta-l">我的团队</span>    
@@ -186,7 +186,7 @@ export default {
             this.goPage('/share', { id: this.userInfo.uid })
         },
         goPage(path, query) {
-        // this.$router.push({ name: name });
+        // this.$router.push({ path: path, query: query });
             btPage.open({
                 url: path,
                 params: query,
@@ -200,14 +200,14 @@ export default {
         },
         goTeam() {
             if (this.agent.hadTeam) {
-                this.goPage('/team')
+                this.goPage('/team', { type: 1 })
             } else {
                 this.goPage('/team/team_lead')
             }
         }
     },
     mounted() {
-        setPageTitle("我的");
+        setPageTitle("个人中心");
         wv.customBackAction(()=> {
           if(this.count == 2){
             btPage.goBack(100);

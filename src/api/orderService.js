@@ -4,7 +4,7 @@ export default {
     getOrderLists(data) {// 订单 - 报价单
         return api({
             method: 'get',
-            url: '/insurance/xxb/order/index',
+            url: '/insurance/xxb/order/index/readonly',
             data: data
         });
     },
@@ -14,18 +14,18 @@ export default {
     //         url: '/insurance/xxb/order/trade',
     //         data: data,
     //     });
-    // }, 
+    // },
     // getOrderDoneLists(data) {// 订单 - 交易完成
     //     return api({
     //         method: 'get',
     //         url: '/insurance/xxb/order/completion',
     //         data: data,
     //     });
-    // }, 
+    // },
     getQuoteLists(data) {// 订单详情
         return api({
             method: 'get',
-            url: '/insurance/xxb/order/details',
+            url: '/insurance/xxb/order/details/readonly',
             data: data,
         });
     },
@@ -39,7 +39,7 @@ export default {
     getQuoteDetail(data) {// 报价单详情
         return api({
             method: 'get',
-            url: '/insurance/xxb/order/quotation/detail',
+            url: '/insurance/xxb/order/quotation/detail/readonly',
             data: data,
         });
     },
@@ -113,7 +113,7 @@ export default {
             data: data
         })
     },
-    getPayDoneMsg(data) {  
+    getPayDoneMsg(data) {
         return api({
             method: 'get',
             url: '/insurance/xxb/order/pay-ok-info',
@@ -125,7 +125,7 @@ export default {
             method: 'get',
             url: '/insurance/xxb/order/query/pickUpLocation',
             data: data
-        }) 
+        })
     },
     orderChange(data) {// 变更报价单
         return api({
@@ -133,7 +133,7 @@ export default {
             url: '/insurance/xxb/order/change',
             data: data
         })
-    }, 
+    },
     shareDetail(data) { // 报价单分享接口
         return api({
             method: 'get',

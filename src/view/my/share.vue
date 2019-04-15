@@ -57,8 +57,9 @@ export default {
             var city = JSON.parse(sessionStorage.getItem("locationInfo")) || {
                 data: { cityCode: "", provinceCode: "" }
             };
-            // const BASE_URL = "https://insuranceapixxb.bz-ins.com" // 生产
-			const BASE_URL = "http://wxtest.bz-ins.com"  // 测试
+            const BASE_URL = "https://insuranceapixxb.bz-ins.com" // 生产
+            // const BASE_URL = "http://prepinsuranceapixxb.bz-ins.com"  // 予发布
+			// const BASE_URL = "http://wxtest.bz-ins.com"  // 测试
             var $url = BASE_URL + "/activity/page/share/receive.html?city=" +(city.data.cityCode ? city.data.cityCode : "") +"&id=" +id;
             
             

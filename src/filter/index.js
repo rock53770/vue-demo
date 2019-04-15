@@ -66,3 +66,21 @@ Vue.filter('dataFormat', function (value, fmt) {
   }
   return fmt;
 });
+
+Vue.directive('drag',{
+    inserted:function(el) { //钩子函数-//当被绑定的元素插入到 DOM 中时……
+        let elem = el; //el触发的DOM元素
+        elem.onmousedown = function(e) {
+            let l = e.clientX - elem.offsetLeft;
+            let t = e.clientY - elem.offsetTop;
+            document.onmousemove = function(e) {
+                elem.style.left = e.clientX - l + 'px';
+                elem.style.top = e.clientY - t + 'px';
+            };
+            elem.onmouseup = function() {
+                document.onmousemove = null;
+                elem.onmouseup = null;
+            }
+        }
+    },
+});

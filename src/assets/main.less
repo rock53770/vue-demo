@@ -71,7 +71,7 @@ header{
     background: #fe986b;
 }
 .btn_gradient {
-    background:linear-gradient(to right, #FC6B47, #FF8526);
+    background:linear-gradient(to right, #FF8526, #FC6B47);
 }
 .tit-tag {
     &:before {
@@ -398,6 +398,21 @@ header{
         background-color: #FC6B47;
     }
 }
+
+.bold_bd_left_l {
+    position: relative;
+    padding-left: 22px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        height: 14px;
+        width: 3px;
+        background-color: #FFA419;
+    }
+}
 .star:after{
 	content:"*";
 	position:absolute;
@@ -425,4 +440,50 @@ header{
 .volumn{
   background:url(./icons/volumn.png) no-repeat left;
   background-size:20px auto;
+}
+// 增加 icon + -
+.icon-add {
+    position: relative;
+    height: 28px;
+    width: 28px;
+    border: 1px solid inherit;
+    border-radius: 50%;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 1px;
+        width: 10px;
+        background-color: inherit;
+    }
+}
+
+.icon-reduce {
+    position: relative;
+    height: 28px;
+    width: 28px;
+    border: 1px solid #97999b;
+    border-radius: 50%;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 1px;
+        width: 10px;
+        background-color: #97999b;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 10px;
+        width: 1px;
+        background-color: #97999b;
+    }
 }

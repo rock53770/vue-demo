@@ -1,39 +1,42 @@
 <template>
     <div class="achieve">
-        <div class="m-list pos-r">
-            <btScroller :getData="getData" :currentPage.sync="pageIndex" ref="ach">
-                <div slot="keep">
-                    <div class="m-header cl-white ta-c pos-r">
-                        <div class='u-total'>
-                            <span>总收入(元)</span>
-                            <p>{{mainData.amountTotalIncome|currency2('',2)||"0.00"}}</p>
-                        </div>
-                        <div class="u-other flex-center">
-                            <div class="u-insFee line-r w-50">
-                                <span>总保费(元)</span>
-                                <p class="ft16">{{mainData.premiumTotalOrder|currency2('',2)||"0.00"}}</p>
-                            </div>
-                            <div class="u-insDeal w-50">
-                                <span>总保单(单)</span>
-                                <p class="ft16">{{mainData.numberTotalOrder||"0"}}</p>
-                            </div>
-                        </div>
-                        <img src="~@/assets/images/Group6@3x.png" alt="" class="w-100">
+        <div>
+            <div class="m-header cl-white ta-c pos-r">
+                <div class='u-total'>
+                    <span>总收入(元)</span>
+                    <p>{{mainData.amountTotalIncome|currency2('',2)||"0.00"}}</p>
+                </div>
+                <div class="u-other flex-center">
+                    <div class="u-insFee line-r w-50">
+                        <span>总保费(元)</span>
+                        <p class="ft16">{{mainData.premiumTotalOrder|currency2('',2)||"0.00"}}</p>
                     </div>
-                    <div class="h50 bg-white pos-r">
-                        <div class="h50 bg-white flex-center plr12 justify-sb ta-c w-100 m-date">
-                            <div class="lh30 h30 w100 van-hairline--surround cl-gray" @click="selectTime(0)">{{ $util.formatDate(start, 'yyyy-MM-dd') }}</div>
-                            <span class="cl-gray">至</span>
-                            <div class="lh30 h30 w100 van-hairline--surround cl-gray" @click="selectTime(1)">{{ $util.formatDate(end, 'yyyy-MM-dd') }}</div>
-                            <button class="bg-orange cl-white w60 h30 bdr3 u-sch" @click="sch()">查询</button>
-                        </div>
+                    <div class="u-insDeal w-50">
+                        <span>总保单(单)</span>
+                        <p class="ft16">{{mainData.numberTotalOrder||"0"}}</p>
                     </div>
                 </div>
+                <img src="~@/assets/images/Group6@3x.png" alt="" class="w-100">
+            </div>
+            <div class="bg-white pos-r">
+                <div class="bg-white flex-center plr12 justify-sb ta-c w-100 pb5">
+                    <div class="lh30 h30 w100 van-hairline--surround cl-gray" @click="selectTime(0)">{{ $util.formatDate(start, 'yyyy-MM-dd') }}</div>
+                    <span class="cl-gray">至</span>
+                    <div class="lh30 h30 w100 van-hairline--surround cl-gray" @click="selectTime(1)">{{ $util.formatDate(end, 'yyyy-MM-dd') }}</div>
+                    <button class="bg-orange cl-white w60 h30 bdr3 u-sch" @click="sch()">查询</button>
+                </div>
+            </div>
+        </div>
+        <div class="m-list pos-r">
+            <btScroller :getData="getData" :currentPage.sync="pageIndex" ref="ach">
+                
+                
+
                 <div>
                     <!-- 列表主体 -->
                     <div class="container bg-white mt10" v-for="item in dataList" :key="item.orderId">
                         <div class=" flex-center justify-sb h45 van-hairline--bottom plr12 cl-orange ft16 fw-b">
-                            <p class="flex-center justify-sb">车险投保奖励</p>
+                            <p class="flex-center justify-sb">{{ item.word }}</p>
                             <p class="flex-center justify-sb" v-if="item.rebateAmount">{{(item.orderType==1||item.orderType==2||item.orderType==3)&&item.rebateAmount?"+":""}}{{item.rebateAmount|currency2('',2)}}</p>
                         </div>
                         <div class="cl-gray f14" v-if="!item.word">
@@ -65,7 +68,7 @@
                     <p class="refresh" @click="sch()">重新加载</p>
                 </div> -->
                 <div class="ta-c bg cl-gray mt40" slot="empty">
-                    <img src="../../assets/images/order_no_list.png" height="95" width="140">
+                    <img src="../../components/btScroller/data-no.png" height="95">
                     <p class="mt20">您还没有订单成交哟，快去下单吧～</p>
                 </div>
             </btScroller>
@@ -228,10 +231,10 @@
             box-sizing: border-box;
             background: url(~@/assets/images/achieve_bg@3x.png) no-repeat top center;
             background-size: 100%;
-            height: 204px;
-            padding-top:24px;
+            height: 160px;
+            padding-top: 15px;
             .u-total{
-                margin-bottom: 26px;
+                margin-bottom: 15px;
                 span{
                     color:#FFFFCFC4;
                 }
@@ -267,11 +270,11 @@
                 left: 0;
             }
         }
-        .m-date{
-            margin-bottom: 10px;
-        }
+        // .m-date{
+        //     margin-bottom: 10px;
+        // }
         .m-list{
-            height: 100%;
+            height: calc(100% - 195px);
             .s-status{
                 color: #FF9933;
             }

@@ -20,7 +20,8 @@ export default {
 	methods: {
 		goTeam() {
 			btPage.open({
-                url: '/team',
+				url: '/team',
+				params: { type: 1 },
 				container_style: 1,
 				type: 3
             });

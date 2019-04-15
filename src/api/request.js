@@ -105,7 +105,7 @@ export default function get(config) {
           params: config.data,
           headers: headers,
         }).then((result) => {
-          console.log(result)
+          // console.log(result)
           resolve(result.data)
         }).catch(function(error) {
           Toast("" + error);
@@ -119,7 +119,7 @@ export default function get(config) {
     //cookie失效 code:-1
     if (result.code && result.code == 1000) {
         console.log(router.currentRoute)
-        
+
         if(GConfig.isInApp){
           Util.removeLocalData("AccessToken");
           Util.removeLocalData("userInfo");
