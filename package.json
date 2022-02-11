@@ -17,7 +17,7 @@
     "skeleton-ssr": "node build/skeleton.js"
   },
   "dependencies": {
-    "ajv": "^6.5.3",
+    "ajv": "^6.12.3",
     "ajv-keywords": "^3.2.0",
     "axios": "^0.18.0",
     "echarts": "^4.2.0-rc.2",
