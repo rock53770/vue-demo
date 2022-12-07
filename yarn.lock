@@ -123,10 +123,10 @@
   resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-8.10.46.tgz#12161db48a775e8c69c1cfff2be545610381056f"
   integrity sha1-EhYdtIp3Xoxpwc//K+VFYQOBBW8=
 
-"@vant/icons@1.1.5":
-  version "1.1.5"
-  resolved "http://registry.npm.taobao.org/@vant/icons/download/@vant/icons-1.1.5.tgz#632e41138eca6482a65c3c9289bb78e55d1162a7"
-  integrity sha1-Yy5BE47KZIKmXDySibt45V0RYqc=
+"@vant/icons@1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@vant/icons/-/icons-1.1.7.tgz#29561adfffa6a750d279dccdbe9a69b743934f3f"
+  integrity sha512-hCHVniOmBIs789UYxICgC3k3wGWI3QGx3/LOtSjMu7DtCyGdFX/6saNzrpDENNAponHAsszvUmBz37v9GQjX9A==
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.0.0-beta.3":
   version "1.0.0-beta.3"
@@ -6959,9 +6959,9 @@ qs@6.5.2, qs@~6.5.2:
   integrity sha1-yzroBuh0BERYTvFUzo7pjUA/PjY=
 
 qs@~6.4.0:
-  version "6.4.0"
-  resolved "http://registry.npm.taobao.org/qs/download/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
-  integrity sha1-E+JtKK1rD/qpExLNO/cI7TUecjM=
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.1.tgz#2bad97710a5b661c366b378b1e3a44a592ff45e6"
+  integrity sha512-LQy1Q1fcva/UsnP/6Iaa4lVeM49WiOitu2T4hZCyA/elLKu37L99qcBJk4VCCk+rdLvnMzfKyiN3SZTqdAZGSQ==
 
 query-string@^4.1.0:
   version "4.3.4"
@@ -8630,13 +8630,13 @@ vanilla-masker@^1.2.0:
   resolved "http://registry.npm.taobao.org/vanilla-masker/download/vanilla-masker-1.2.0.tgz#c2830e9d994a5fecd2261506477c2707fe589756"
   integrity sha1-woMOnZlKX+zSJhUGR3wnB/5Yl1Y=
 
-vant@^1.6.12:
-  version "1.6.15"
-  resolved "http://registry.npm.taobao.org/vant/download/vant-1.6.15.tgz#a8b9ca8e2d2e1d4b57f4a8f0ae7afbb40325a052"
-  integrity sha1-qLnKji0uHUtX9Kjwrnr7tAMloFI=
+vant@^1.3.7:
+  version "1.6.28"
+  resolved "https://registry.yarnpkg.com/vant/-/vant-1.6.28.tgz#8611c46be4af1dcad77eb5c76f1dc851512d906e"
+  integrity sha512-yGiQFPA7tmvlA05ezWg2MnknDK2OKlHmJurvHm2mWt1zdjfiVDJj+XFh6xMY8jZUsBZMWqdBSc+gAKzII8fOqg==
   dependencies:
     "@babel/runtime" "^7.4.3"
-    "@vant/icons" "1.1.5"
+    "@vant/icons" "1.1.7"
     "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0-beta.3"
     vue-lazyload "1.2.3"
 
